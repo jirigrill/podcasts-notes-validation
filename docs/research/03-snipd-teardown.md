@@ -8,6 +8,16 @@ says so explicitly rather than estimating.
 
 ## Methodological caveat — read this first
 
+> **Update 2026-09-07 (pass 03b, issue #11): the Reddit gap has been partly closed.** A follow-up
+> pass ran via the **Arctic Shift archive** (`arctic-shift.photon-reddit.com`), the route proven
+> in `04-demand-evidence.md`. Direct Reddit access was retried first and is **still blocked** —
+> see the route table in §4.10. The pass recovered the r/ObsidianMD, r/Overcast and r/podcasts
+> material that this section originally reported as unreachable. **It did not overturn the
+> saturation verdict, but it did surface one new complaint theme (§4.10) and one materially
+> adverse competitive development (§5.1) that this document did not previously contemplate.**
+> New material is confined to **§4.10**, **§5.1**, and the restated verdict in **§6**; the
+> original text below is left as written, including its own claims about what was unavailable.
+
 Reddit was **not accessible** during this research. `reddit.com`, `old.reddit.com`,
 `api.reddit.com`, every Redlib/Libreddit mirror tried, and the PullPush archive API all
 returned 403 / 429 / bot-walls. General web search (Google, Bing, DuckDuckGo, Brave, Startpage,
@@ -583,7 +593,1062 @@ a user describing Snipd as the successor to a *previous* podcast-highlighting ap
 **[INFERRED]** This is the market's verdict in one review: the previous entrant in this exact
 category (Airr) lost, Snipd won, and the winner is described as "almost perfect."
 
+### 4.10 Reddit evidence (pass 03b, 2026-09-07) — route, coverage, and what it added
+
+This section closes the gap the caveat at the top of this file declared. It is placed inside the
+taxonomy, not appended as a loose section, because its content belongs to themes 4.1, 4.6, 4.7
+and 4.9 — plus **one theme that was previously missing entirely** (offline dependency).
+
+**Route, retried in this order.** Recorded per the ticket's requirement.
+
+| Route | Result 2026-09-07 |
+|---|---|
+| `api.reddit.com` (search) | **403** |
+| `reddit.com/search.json`, `old.reddit.com/.../search.json` | **403** / 302 to bot-wall |
+| Redlib mirrors: `catsarch.com`, `perennialte.ch`, `privacyredirect.com`, `l.opnxng.com` | **403** (opnxng redirects to catsarch, which 403s) |
+| `safereddit.com` | HTTP **200** but serves an Anubis *"Verifying your browser…"* JS challenge — no content |
+| PullPush (`api.pullpush.io`) | **429**; body states scraping is now a paid service |
+| **Arctic Shift** (`arctic-shift.photon-reddit.com`) | **WORKS** — the only route that returned data |
+
+So: **direct Reddit access has not recovered.** Every Reddit quote below came from Arctic Shift.
+
+**Two archive quirks that matter for reading the numbers honestly**, because both can manufacture
+false negatives and I hit both:
+
+1. Comment body search **requires a subreddit scope** (`body=` alone is rejected). There is no
+   global term search on this route.
+2. Rare terms in large subreddits **time out server-side**, and the API returns
+   `{"data": null, "error": "Timeout..."}` — an HTTP 200 that a naive parser reads as *zero hits*.
+   My own first pass made exactly this mistake. Every count below comes from a response that was
+   checked for the error field; windows that never resolved are listed as unresolved, **not** as
+   empty. Additionally the archive emits raw control characters and invalid backslash escapes in
+   comment bodies, which breaks strict JSON parsing — silently dropping real results unless
+   repaired. **Treat any prior "no Reddit hits" claim made without these two checks as void.**
+
+#### What it added to the existing themes
+
+**Theme 4.1 (capture boundary accuracy) — corroborated, and dated back to 2021.** Two PKM users
+independently describe the post-processing tax at launch:
+
+> "Snipd provides transcripts by default. There's a default number of seconds of capture time.
+> It's not (and can't be) an exact highlight of the phrase or idea you want to capture, so you
+> need to add a post-processing cleanup step."
+
+— **u/SkydiveMike**, r/ObsidianMD, 2021-11-02,
+[hizfbna](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/hizfbna/)
+(Arctic Shift)
+
+And Snipd's own reply concedes the design limit, which is the strongest available confirmation
+that boundary detection is intrinsic rather than a passing bug:
+
+> "By default, the 'snipping' highlights the entire chapter which is currently playing... You can
+> then change the start & end of your highlight by using the transcript."
+
+— **u/snipd_app**, r/ObsidianMD, 2021-11-02,
+[hizsp2l](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/hizsp2l/)
+(Arctic Shift)
+
+**[INFERRED]** §4.1 said boundary accuracy might be the only capture-adjacent wedge. This pass
+makes that finding **older and better attested** — the complaint is present on day one of the
+Obsidian integration in 2021 and still present in 2026 App Store reviews. It does **not** make it
+a bigger commercial opportunity; see §6.
+
+**Theme 4.6 (export fidelity) — the pattern is five years old, not a 2026 plugin regression.**
+§4.6 read the missing timestamps/headings as a regression introduced by the first-party plugin.
+Reddit shows the same complaint in 2023, against the older export path:
+
+> "The Obsidian export format is beautiful in the reading mode, but I take Obsidian notes to work
+> on them... 1.a. The headings were not exported... 1.b. The time signatures were not exported...
+> 1.c. The formatting was just standing in my way, I found myself with lots of parasite code in an
+> infinite one-column text. I needed to manually clean the code... 2. The selected snip was a bit
+> over 10 minutes, but the exported text stopped after around 6 or 7 minutes."
+
+— **u/archAndrew**, r/ObsidianMD, 2023-04,
+[jgo1fae](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/jgo1fae/)
+(Arctic Shift)
+
+**[INFERRED]** This slightly *weakens* the "the new plugin is worse than the old Readwise path"
+reading in §4.6: export fidelity has been a persistent weak point across both paths, so it looks
+structural to turning chapter-length audio into clean notes, not a specific regression.
+
+**Theme 4.7 (no desktop client) — extended back to 2021.**
+
+> "My main issue is that I mostly listen on the desktop, and these new apps with annotation
+> features are unfortunately mobile-only. The desktop is the only place where I am ready to take
+> notes actively, and on mobile (= on the go), it would just inconvenience me."
+
+— **u/LordDeath86**, r/ObsidianMD, 2021-11-01,
+[hiy2zye](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/hiy2zye/)
+(Arctic Shift)
+
+The request is thus **five years unserved**, not four. Still out of scope per `map.md`.
+
+**Theme 4.9 (churn) — a second independent account that Airr lost on execution.** §4.9 rested on
+one App Store review (BillSwag420). Reddit supplies a year-long Airr beta tester:
+
+> "**Airr** — The transcripts are reliably quite good. But at the moment, you can no longer
+> request more than a single episode transcript per day... Airr appears to work best on faster
+> devices... Newer updates still remain non-functional (crashes regularly but especially whenever
+> I make highlights..). Without Readwise, exporting is a pain if you take lots of highlights with
+> transcripts. **Snipd** — Switched over to Snipd as soon as I saw this post. And I'm absolutely
+> in love."
+
+— **u/doyouhavesauce**, r/ObsidianMD, 2021-11-03,
+[hj5sw3z](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/hj5sw3z/)
+(Arctic Shift)
+
+**[VERIFIED]** The demand statement the ticket most wanted — a non-listener converted *into* the
+category by the capture feature:
+
+> "I usually don't listen to podcasts because it is impractical to pause and take notes. And it's
+> an absolute nightmare to remember you heard something in some podcast... End result is that I
+> don't really learn anything that I can use or reuse. This is a good enough reason to try snipd
+> in particular and retry podcasts again."
+
+— **u/Psychsatani**, r/ObsidianMD, 2021-11-01, 17 points,
+[hiwxdgj](https://reddit.com/r/ObsidianMD/comments/qkk8fm/we_at_snipd_just_released_an_obsidian_integration/hiwxdgj/)
+(Arctic Shift)
+
+#### NEW theme — offline / cloud dependency (not in the original seven)
+
+This is the one substantive complaint the original taxonomy missed, and the closest thing to a
+churn-out post the pass found. An entire r/podcasts thread titled **"Snipd Dealbreaker"**:
+
+> "Love the 'Snips' feature but the major downer of this App is that you need a reasonably good
+> network connection for it to work. It was dead in the water on a flight to LA. And even when
+> driving around will hang while trying to download favorites (never had either of these issues
+> with Overcast)"
+
+— **u/BartSmithsonn**, r/podcasts, 2026-04-29,
+[1tqrud4](https://reddit.com/r/podcasts/comments/1tqrud4/snipd_dealbreaker/) (Arctic Shift)
+
+**Honest limits on this one.** It is **single-source**: I searched the full App Store review
+corpus (AU/BR/JP RSS feeds, the only storefronts still serving) for
+`offline|network|connect|download|flight|plane|wifi|signal` and found **no** corroborating
+complaint. The thread's only reply was **later removed** and promoted a product, so I am not
+citing it. So: a real, verbatim, on-point dealbreaker post from a user comparing unfavourably
+against Overcast — but **one** of them. Recorded as a theme because it is structural (a cloud-ASR
+architecture genuinely cannot work on a plane), flagged as thin because it is n=1.
+
+#### r/PKMS — the richest Snipd-specific vein found (added on second parse)
+
+r/PKMS was the highest-yield subreddit in this pass (37 hit rows). It contains a dedicated
+**"Snipd vs Airr for podcast note-taking"** thread
+([xodrk7](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/), 2022-09)
+that runs to 2024 — a longitudinal record of exactly the ticket's target demographic choosing
+between the two, then living with the choice. All Arctic Shift.
+
+**Why Airr lost, from users who chose against it in real time** — this triangulates §4.9's
+single-review conclusion with three more independent voices:
+
+> "I use snipd because back when I used Airr it often didn't remember where I was in a podcast the
+> last time I listened so it started over. The Airr app overall is just really glitchy."
+
+— **u/oskernaut**, 2022-09-26,
+[ipzlqq6](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/ipzlqq6/)
+
+> "I eliminated Airr because of a lack of company Twitter traffic (putting doubt in if the company
+> is really still alive and moving forward?), and negative feedback on Twitter"
+
+— **u/thepolymathelder**, 2022-09-26, 5 points,
+[ipzdtk6](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/ipzdtk6/)
+
+**[VERIFIED]** The most important line in this thread for sizing the category, from a user who
+adopted Snipd and kept using it:
+
+> "But yeah...podcast note taking is a surprisingly **dry space** at the moment."
+
+— **u/Remixer96**, 2022-09-26, 6 points,
+[ipydl25](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/ipydl25/)
+
+**[VERIFIED]** And the closest thing to a stability-based churn signal the pass found, from that
+same user five months later:
+
+> "Sadly no, and **Snipd hadn't been the most technically stable app either.**"
+
+— **u/Remixer96**, 2023-03-04,
+[javjdiz](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/javjdiz/)
+
+**[INFERRED]** Note the past tense ("hadn't been"), which reads as a user who has stopped or
+reduced use. This is the second churn-adjacent data point (with §4.10's dealbreaker post), and it
+corroborates **§4.5 (sync reliability and data loss)** from an independent source. Still not a
+cohort — two users, different reasons — but §4.5's confidence rises.
+
+**Export friction, quantified by a user who counted the taps** — the sharpest version of §4.6:
+
+> "Yikes! **Seven screens and nine taps.** So, yes, manual and crazy long process...I hope I'm
+> missing something."
+
+— **u/thepolymathelder**, 2022-09-27,
+[iq3m7bz](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/iq3m7bz/)
+
+**Transcription accuracy — a complaint theme under-weighted in the original taxonomy.** §4.1 covers
+snip *boundaries*; these users complain about ASR *accuracy*, which is distinct:
+
+> "I really like Snipd but the transcription is often times wrong lol."
+
+— **u/oskernaut**, 2022-09-26, 3 points,
+[ipzouv0](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/ipzouv0/)
+
+> "I agree that the Snipd transcription is far from perfect."
+
+— **u/thepolymathelder**, 2022-09-26,
+[ipzweeu](https://reddit.com/r/PKMS/comments/xodrk7/snipd_vs_airr_for_podcast_notetaking/ipzweeu/)
+
+**[INFERRED]** This is a *cost* warning for a new entrant, like §4.3: Snipd runs in-house ASR and
+users still call it "far from perfect." A solo developer paying retail ASR rates would not
+obviously beat it.
+
+**Price resistance at the free→paid transition** — relevant to §6's "no price umbrella" claim,
+and mildly against it:
+
+> "I used the previous free version once or twice a week to export podcast transcripts to my
+> Obsidian vault. However, now that they've moved most of that functionality to the premium paid
+> version, I'm not sure I'll keep using it... I think they **overpriced** and the new features
+> aren't that much better than before IMO."
+
+— **u/redmelon42**, r/ObsidianMD, 2023-09-10, 8 points,
+[16enxj3](https://reddit.com/r/ObsidianMD/comments/16enxj3/what_do_you_think_of_snipd_premium/)
+
+> "Great catch - didn't know about Snipd. But, darn, paid subscription."
+
+— **u/Barycenter0**, r/PKMS, 2024-05-10,
+[l3h8mfg](https://reddit.com/r/PKMS/comments/1cnzs5d/timestamping_videos_with_just_press_of_a_button/l3h8mfg/)
+
+**[INFERRED]** §6 argues there is "no price umbrella" because heavy users would pay *more*. That
+remains true at the top of the market, but these two show a **lower** segment that balks at
+Snipd's paywall. This is the strongest pro-(a) evidence the pass produced. I am not upgrading it
+further because both users describe *reducing use*, not *paying someone else* — no revealed
+willingness to pay a competitor is demonstrated.
+
+**Low switching cost, stated explicitly** — a warning about defensibility in both directions:
+
+> "genious! I would use it and easily **ditch snipd**."
+
+— **u/Legal-Judgment-908**, r/PKMS, 2024-06-19, 5 points, replying to someone launching a podcast
+second-brain tool,
+[l9atze0](https://reddit.com/r/PKMS/comments/1djhvrz/i_built_a_second_brain_tool_for_podcasts_as_a/l9atze0/)
+
+**[INFERRED]** Cuts both ways and is worth stating plainly: users are willing to leave Snipd for
+something better, which is mildly pro-(a) — but the same non-existent switching cost applies to
+anything a new entrant builds. Note also that the tool being praised here launched in 2024; I did
+not find it still operating.
+
+**Still-open gaps confirmed in 2026** — the most recent substantive post found, which reads as a
+checklist of unfixed §4.6/§4.7 issues from an active researcher:
+
+> "I like how I can 'snip' sections as I listen and import into Obsidian... But I'm not too happy
+> with a few things like: Lack of desktop player / Sometimes convoluted player / Difficult to find
+> the episodes I'm interested in / **Doesn't give me a source link, just the Snipd link**, which if
+> I reference others can't play without also having the app... The snip template is a bit tricky to
+> get right... In sum, it's a great resource but **seems like there should be a better tool for this
+> purpose.** Any suggestions on alternatives?"
+
+— **u/Hour_Papaya_5583**, r/ObsidianMD, 2026-08-08, 5 points,
+[1viie03](https://reddit.com/r/ObsidianMD/comments/1viie03/podcasts_as_source/)
+
+**[INFERRED]** This is the single most encouraging quote in the pass for the proposal — a 2026
+power user explicitly asking for alternatives. Weigh it against §5.1 and §6 before treating it as
+a green light: the gaps named are desktop (out of scope), citation/source links (a
+citation-management feature, not capture), and template control (§4.6's backlog).
+
+**A skeptical note on the "Discover/highlights feed" premise, from someone building in the space:**
+
+> "I keep seeing tools (Snipd being the main one) that auto-extract highlights... But I talk to a
+> lot of Obsidian users who say the same thing: **highlights feeds feel useful for 3 days and then
+> they stop opening it.** The stuff that actually ends up in their vault came from moments they
+> were actively listening and chose to capture."
+
+— **u/Remote-Positive-8951**, r/ObsidianMD, 2026-03-08,
+[1rokpmq](https://reddit.com/r/ObsidianMD/comments/1rokpmq/does_a_podcast_highlights_feed_actually_help_you/)
+
+**[INFERRED]** Treat as a competitor's hypothesis, not as evidence — the author is soliciting
+validation for their own product. But it aligns with §4.1's *deliberate-listener* complaint about
+automatic snips creating clutter, and it supports the narrower reading that **user-initiated
+capture is the durable behaviour and AI-surfaced discovery is not.**
+
+#### r/Zettelkasten — the "capturing notes from audio while driving" thread
+
+**[VERIFIED]** r/Zettelkasten contains a thread on exactly this effort's use case
+([zboiem](https://reddit.com/r/Zettelkasten/comments/zboiem/capturing_notes_from_audio_while_driving/),
+2022-12, "Capturing notes from audio while driving"). Every substantive reply recommends **Snipd**.
+No respondent proposed building or wanting something else. All Arctic Shift.
+
+> "Snipd is amazing for this. Let's you take a snip of a podcast, saves the audio and transcribed
+> text, and then you can export it to Notion, Obsidian, and other apps. The only issue is that they
+> have a limited amount of podcasts"
+
+— **u/salvaCool**, 2022-12-04, 3 points,
+[iytxrck](https://reddit.com/r/Zettelkasten/comments/zboiem/capturing_notes_from_audio_while_driving/iytxrck/)
+(the "limited amount of podcasts" remark independently corroborates **§4.3**, the corpus-coverage tax)
+
+The most analytically useful comment in the pass, because it is a full pros/cons audit from a user
+who had **already churned out of a dead competitor** (Momento — confirmed dead in §5.2):
+
+> "Seconded. **Used to use Momento, but it was stupid buggy.** Snipd is great, and not just for a
+> free solution. **I think they have the market cornered atm and could easily start charging.**
+> Pros: Easy export to Obsidian. Editing clips is super simple... Allows you to take snips from a
+> button on the steering wheel or your headphones. AI is doing a lot of the heavy lifting and is a
+> joy to use because of it. Downsides: Sometimes the transcripts aren't available or have a glitch
+> (infrequent in my experience). **Can't transcribe snips from private RSS feeds.** The big bummer
+> is that you apparently can't listen in a faster speed and still have the transcript link up with
+> the original speed"
+
+— **u/cloggedkitchensink**, 2022-12-04,
+[iyusrv1](https://reddit.com/r/Zettelkasten/comments/zboiem/capturing_notes_from_audio_while_driving/iyusrv1/)
+
+**[INFERRED]** Three things this settles. (1) *"they have the market cornered"* is a **user's**
+unprompted assessment of saturation, from 2022, in the target community — the verdict in §6 is not
+merely my inference. (2) It confirms the **private/Patreon RSS** limitation that §7 listed as
+unknown, at least as of 2022. (3) The playback-speed/transcript-desync complaint is a **genuinely
+new** minor defect not in the original taxonomy.
+
+**[VERIFIED]** And a competitor-awareness data point showing how crowded this looked even in 2022 —
+a fourth competitor named that §5 never checked:
+
+> "Could you summarize what differentiates it from Snipd, Airr, and **NoteCast**?"
+
+— **u/ZettelCasting**, r/Zettelkasten, 2022-06-27,
+[idvcvi6](https://reddit.com/r/Zettelkasten/comments/vgjm8m/how_to_get_specific_podcast_snippets_with_one_tap/idvcvi6/)
+
+**[INFERRED]** Note the thread title it appears under — *"How to get specific podcast snippets with
+one tap"* — is, almost verbatim, the proposed app's pitch. It was already a solved-and-crowded
+question being asked in 2022.
+
+#### The clearest churn-out account in the corpus (r/PKMS, 2025)
+
+The ticket's central question was whether *ex-users* exist and say why they left. Besides §4.10's
+dealbreaker post, the pass found exactly one full account. It is worth quoting whole because its
+reasons are **not** the ones this teardown predicted:
+
+> "I tried snipd and liked the functionality, but I found I was **overusing the ai functions and
+> losing the notes that I actually took myself** and found what I found valuable in all the ai
+> generated text. I liked having a transcript, but didn't like that a lot of the podcasters I
+> listen to probably would not appreciate their listeners feeding their work into a tech company's
+> plagiarism machine. But most of all, I didn't like that it was harder to curate my own podcast
+> feed cause **they were pushing tech- and finance- and self-optimization-bro content** on you like
+> crazy. And then they ask you to pay for that with their freemium model. **I will not!**"
+
+— **u/Ok-Effort-8356**, r/PKMS, 2025-01-08,
+[m64oeim](https://reddit.com/r/PKMS/comments/1hwwa6f/notetaking_proces/m64oeim/) (Arctic Shift)
+
+**[INFERRED]** Three of the four reasons are **not** in the original taxonomy: AI output drowning
+the user's own notes; an ethical objection to feeding creators' work to AI; and editorial
+objection to the Discover feed's content skew (which §4.8 recorded only as a mild
+*"Rogan-Hibernian-core"* discovery-quality gripe). Only the fourth — freemium resistance — was
+anticipated. **This is the single best piece of pro-(a) evidence in the pass**: a churned user
+whose complaints a leaner, non-AI-maximalist, no-Discover-feed capture tool would structurally
+avoid.
+
+**Why it still does not move the verdict to (a).** It is **n=1**. And the taxonomy is now clear that
+what this user wanted — plain user-driven capture without AI embellishment — is *cheaper* to build
+but also precisely what has **no price umbrella**: Snipd gives one-tap capture and export away
+free, so the differentiated product here is "the same capture, with less," which is a hard sell at
+a subscription price. **[INFERRED]** Recorded as the most interesting counter-signal found, not as
+a validated wedge.
+
+**Corroboration that the capture moment itself is what retains users** — two 2026 quotes that
+independently restate this effort's premise as *already solved by the incumbent*:
+
+> "One touch to clip a section with the transcript included. I sync these to Readwise and they show
+> up periodically in my Readwise review emails."
+
+— **u/Tutwiler**, r/PKMS, 2026-05-22,
+[on66veq](https://reddit.com/r/PKMS/comments/1tj3nry/anyone_else_collecting_audiobook_or_podcast/on66veq/)
+
+> "the bike and drive case is the one that **actually decides which tool you keep**, so i would not
+> fight snipd on that. **capture has to work when your hands are busy or it does not happen at
+> all.**"
+
+— **u/Good-Writer5279**, r/PKMS, 2026-08-25,
+[p5wc1a1](https://reddit.com/r/PKMS/comments/1vi4voy/podcasts_as_source/p5wc1a1/)
+
+**[INFERRED]** The second quote is the most direct statement in the entire corpus of both this
+effort's premise *and* why the premise no longer implies an opportunity: hands-busy capture is the
+retention driver, and a user actively dissatisfied with Snipd for research use still advises
+against competing with it there.
+
+**Two more live competitors named by their own builders in 2026** (recorded for §5.2's ledger, not
+independently verified beyond the quotes): **Snipo** for YouTube (u/mlukich, r/PKMS 2025-04-30,
+[mpx6vhf](https://reddit.com/r/PKMS/comments/1k7110k/my_pkm_system_update_link_to_essay_with/mpx6vhf/))
+and **Aurilix**, positioned on episode *triage* rather than capture (u/Michal_A, r/PKMS 2026-07-21,
+[oyvcy20](https://reddit.com/r/PKMS/comments/1c3phpj/snipd_vs_podwise_for_podcast_notetaking/oyvcy20/)).
+**[INFERRED]** Vendor self-promotion in both cases; the signal worth keeping is that **new entrants
+keep arriving in this niche and keep positioning around Snipd rather than displacing it.**
+
+#### Confidence effect on the taxonomy
+
+**[INFERRED]** The taxonomy's confidence moves from "medium / ~30 reviews, Apple-biased-positive"
+to **medium-high**, for a specific reason: the Reddit corpus is an *independent* sample with
+different selection bias (self-selected complainers in PKM communities, not Apple's
+"most helpful" ordering), and it **reproduced themes 4.1, 4.6 and 4.7 without contradicting any
+of them**. Independent replication across differently-biased samples is what should raise
+confidence. It stops short of "high" because the Snipd-specific Reddit volume is itself modest
+(see the coverage ledger, §4.14). Note that later passes broadened this considerably: the corpus now
+spans the 2021 r/ObsidianMD launch thread, the 2022–24 r/PKMS "Snipd vs Airr" thread, the 2023–26
+r/ObsidianMD "no longer free" thread (§4.11), a r/Zettelkasten driving thread, and 46 r/pocketcasts
+comments (§4.12) — so concentration is much less of a concern than when this paragraph was written.
+
 ---
+
+### 4.11 The natural experiment this teardown was missing — what happened to the people who left
+
+**This subsection changes the weight of the evidence, and it is the reason the pass was worth
+running.** §4.9 and the original §6 concluded that churn-out was near-absent. That was an artefact
+of the sources available: App Store reviews and GitHub issues capture *current* users. Reddit
+captures the **exit interview**. And it turns out the 2023 paywall change produced a documented
+cohort of ex-users, a documented demand for a cheaper alternative, and — decisively — **several
+documented attempts to build one, whose outcomes are now observable.**
+
+#### The cohort exists, and it formed around the paywall
+
+**[VERIFIED]** A thread titled **"Now that Snipd is no longer free has anyone found any decent
+alternatives?"** — **25 upvotes**, and a reply chain running from **Sept 2023 to 2026**:
+[16qodbp](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/)
+(Arctic Shift). This directly contradicts this document's earlier reading that complaints are
+"power users asking for more, not people leaving."
+
+> "I wouldn't mind so much if their free tier was more than a bad podcast app!... I'm sure there
+> are enough folks who either can't afford or don't want another subscription right now."
+
+— **u/Blackgirlmagic23**, 2023-09,
+[k27wa0s](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/k27wa0s/)
+
+> "As a heavy podcast listener I would happily pay **$40/year**, but they currently charge double
+> that, and I feel it's **too much**."
+
+— **u/lefteyes**,
+[m6gd84b](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m6gd84b/)
+
+**[VERIFIED]** A user describing product *decay* as the reason for leaving — a fourth distinct churn
+reason, and the one most on-point for this effort's thesis:
+
+> "Snipd started great but **gets notably worse with each update**, to the point that I can't title
+> my segments anymore and **they keep pushing AI summaries for everything**, and solid note features
+> get removed or made worse. **I just want to save and export highlights with an AI transcript!**"
+
+— **u/backpackn**,
+[ltgotmq](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/ltgotmq/)
+
+**[VERIFIED]** And the same want, stated independently in 2026 as a standalone request:
+
+> "I currently used Snipd, but I would like to **move away from using AI as much as they do**. And I
+> am ok with losing the AI summaries and transcripts. Ideally I'd be able to make clips while
+> listening and leaving a note on the clip. And then export. **Does this exist without AI?**"
+
+— **u/piloteris**, r/PKMS, 2026-01-05, 5 points,
+[1q4qttj](https://reddit.com/r/PKMS/comments/1q4qttj/looking_for_a_podcast_app/) (Arctic Shift)
+
+**[INFERRED]** So the demand signal §6 said was missing does exist, and it is specific: *cheaper,
+less AI, user-controlled clips with notes, exportable.* Together with u/Ok-Effort-8356 (§4.10) that
+is **four** independent users wanting the same leaner product. This is the strongest pro-(a)
+evidence in the teardown and it should be recorded as such.
+
+#### But now follow what happened to the people who tried to serve it
+
+This is why the finding does **not** flip the verdict. The same threads contain the outcomes.
+
+**[VERIFIED] Attempt 1 — Castle Player**, recommended in 2023 as "the most similar to Snipd"
+([k3a8amh](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/k3a8amh/)).
+Its own recommender's later verdict:
+
+> "Fair warning I'm **back to just screen recording segments** in a regular pod app and then putting
+> them through a speech to text later. While having some really nice features and so much potential,
+> Castle was **too buggy** for me, with poor note management and an **unresponsive developer who
+> hasn't released an update in over a year.**"
+
+— **u/backpackn**,
+[m36ayoy](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m36ayoy/)
+
+Confirmed independently today: **Castle Player** (id 1634415369, Tinybits LLC) sits at **v1.3.1,
+last updated 2023-02-28, 16 ratings** — no release in ~3.5 years — and two users report it gone from
+the Play Store ([m155cei](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m155cei/),
+[mcib4dl](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/mcib4dl/)).
+**[INFERRED]** Abandoned.
+
+**[VERIFIED] Attempt 2 — Alora Podcasts, and this is the closest analogue to the proposed app that
+exists.** A *churned paying Snipd subscriber* built exactly the product this effort is contemplating:
+
+> "**Former payed subscriber to Snipd here** and I've gotten very frustrated with their roadmap. So
+> I decided to **build a podcast player myself taking all their great note taking features and
+> making it free and easier to use for people.**"
+
+— **u/henrycrown10**, 2025,
+[n112tou](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/n112tou/)
+
+He shipped it ([Alora Podcasts](https://apps.apple.com/us/app/alora-podcasts/id6737438411),
+Alora Studios Inc., released **2025-05-15**, now **v1.4.1**, updated **2026-08-11**, **32 ratings /
+4.94★** — iTunes Lookup, today). Demand in-thread was real: at least **eight** users asked for
+invites.
+
+**Then he removed the capture features.** This is the single most decision-relevant quote in the
+entire teardown:
+
+> "We realised that **adding the snipd features didn't really move the needle in terms of getting
+> people to switch**, so we're focused on making it easier for you to discover episodes you'd like
+> at the moment."
+
+— **u/henrycrown10**,
+[nknqc9v](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/nknqc9v/)
+
+**[VERIFIED]** Confirmed by the App Store listing today: Alora's description leads with
+*"listen to all your podcasts ad-free with no fees... Auto-skip commercials"* and lists
+*"Organize your episodes with bookmarks and a queue"* — **no snipping, no transcripts, no
+PKM export.** The pivot is real and shipped.
+
+And the user response to that pivot, which also names Airr's death:
+
+> "There are **no real alternatives to Snipd after Airr's sunset**... none have Snipd's features...
+> **The world needs a cost-effective Snipd alternative.**"
+
+— **u/lykpathos**,
+[nknwdgi](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/nknwdgi/)
+
+**[VERIFIED] Attempts 3–5**, all self-announced in these threads, all small or unverifiable:
+**Earworm** (u/CoolThinksPodcast, r/PKMS 2024-01,
+[19axcb8](https://reddit.com/r/PKMS/comments/19axcb8/saving_podcast_clips/)) — recruiting testers;
+an unnamed beta (u/Main-Heat-6240, replying to u/piloteris in 2026,
+[nxz7z0m](https://reddit.com/r/PKMS/comments/1q4qttj/looking_for_a_podcast_app/nxz7z0m/)) — *"fully
+free for life if people join now"*; and **Readable Podcasts** (u/fuxafak, 2023,
+[kbqq4lc](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/kbqq4lc/))
+— *"Still a bit buggy."*
+
+#### What the natural experiment shows
+
+**[INFERRED]** This is the strongest evidence in the whole teardown, because it is not opinion about
+whether a market exists — it is **five observed attempts to enter it, with outcomes**:
+
+| Attempt | Outcome |
+|---|---|
+| Airr | Dead (§5) |
+| Momento | Dead (§5.2) |
+| Castle Player | Abandoned — no update since Feb 2023, 16 ratings |
+| Alora Podcasts | **Alive, but deliberately removed the capture features** — "didn't move the needle" |
+| Earworm / Readable / unnamed 2026 beta | No evidence of traction |
+
+**[INFERRED] The decisive point is Alora.** A motivated founder — himself a churned Snipd
+subscriber, with a warm audience of ex-Snipd users asking him for invites in the very thread where
+they complained about the paywall, shipping free — built the leaner capture tool, and concluded from
+his own users that **capture features do not drive switching.** That is a direct, empirical test of
+this effort's core premise by someone better positioned than the proposed app would be, and it came
+back negative.
+
+**[INFERRED]** So the pro-(a) demand signal above is real but must be read alongside this: users
+*say* they want a cheaper, less-AI Snipd; when one was built and given away, it did not move them.
+The gap between stated and revealed preference is the whole ballgame here, and the natural
+experiment measures it. **This resolves the ticket's core question — "does the complaint pattern
+indicate an unmet need a new entrant could serve?" — more directly than any sentiment analysis
+could: it was served, twice, free, and the market did not move.**
+
+---
+
+### 4.12 r/pocketcasts — the switching-cost evidence the ticket asked for
+
+The ticket named r/pocketcasts and r/Overcast specifically, for switching-cost evidence. r/pocketcasts
+resolved with **46 Snipd-mentioning comments (2022–2026)**, the second-richest vein in the pass. All
+Arctic Shift. It is the best available record of how mainstream-player users actually respond to the
+capture feature, and it complicates §4.9 in **both** directions.
+
+#### Users do switch fully, and they say why
+
+**[VERIFIED]** Complete switch-outs from Pocket Casts, unprompted:
+
+> "Snipd. **I uninstalled pocket casts a week ago.** The ability to search for something that was
+> said in an episode, and then easily export it as text is killer for me."
+
+— **u/hey_ulrich**, 2023-06-18,
+[joky7vu](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/joky7vu/)
+
+> "**I have moved over entirely to Snipd.** I didn't see that coming, but I have. That said, **I'm
+> not currently *doing* much with the snips I'm taking.** But I find it very reassuring to know I am
+> 'bookmarking' bits of episodes"
+
+— **u/robertandrews**, 2023-12-04,
+[kbxf8qt](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/kbxf8qt/)
+
+> "Had been using Pocketcasts for years, it is a great app but there as some cool AI features in
+> Snipd that **made me switch.**"
+
+— **u/bdergez**, 2024-04-05,
+[ky5xld3](https://reddit.com/r/pocketcasts/comments/1buukav/why_are_the_rating_low_in_play_store/ky5xld3/)
+
+> "**i ditched pocket casts for Snipd** for auto generated chapters... This is a killer feature for
+> me."
+
+— **u/woldeselassie**, 2025-10-29,
+[nm21rrc](https://reddit.com/r/pocketcasts/comments/1oh3xjr/episode_chapters/nm21rrc/)
+
+**[INFERRED]** This *strengthens* §4.9's core claim (churn runs **into** Snipd) with four more
+independent cases, and it establishes that the capture/transcript feature set is genuinely
+switch-worthy for some mainstream users. Note u/robertandrews' admission though — he switched for
+the *reassurance* of bookmarking, while not actually using the snips. **That is the stated-vs-revealed
+gap of §4.11 appearing inside a successful conversion.**
+
+#### But the dominant pattern is dual-use, not switching
+
+**[VERIFIED]** The most common posture by far is running both apps and wishing they were one:
+
+> "I'm still using both pocketcasts and Snipd. I feel at the rate Snipd is going **they won't ever
+> cover the general features of pocketcasts** yet have become central to my listening flow for those
+> favorite episodes"
+
+— **u/incogenator**, 2023-12-04,
+[kbx8hue](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/kbx8hue/)
+(u/incogenator posts this same dual-use position **six** separate times, 2023-06 → 2024-12)
+
+> "I've been using Snipd daily for months, having come from Pocket Casts. **I'm really starting to
+> miss Pocket Cast's approach to episode and feed management**, even though I really like Snipd's
+> snipping features. I'd like the apps to merge functionality."
+
+— **u/gklj9786**, 2023-10-16,
+[k522h6e](https://reddit.com/r/pocketcasts/comments/16lm2xo/what_podcast_app_did_you_switch_to_while/k522h6e/)
+
+**[INFERRED]** This is a **direct cost warning for a capture-only new entrant**, and it corroborates
+§4.8's "player fundamentals lag" theme from a different community. Users who adopt a capture app for
+capture keep a *second*, general-purpose app for playback — meaning a new entrant must either ship
+full player fundamentals (queues, filters, silence-trim, playlists, video) or accept being a
+permanent secondary app. Snipd, four years and $700k in, is still described as not having closed that
+gap.
+
+#### Price is the single most-repeated objection in this subreddit
+
+**[VERIFIED]** Three independent users, unprompted:
+
+> "I paid a one off payment for Pocket Casts years ago which was nice but **I won't pay a monthly or
+> yearly for Snipd.**"
+
+— **u/quat1e**, 2023-06-18,
+[jol3zwn](https://reddit.com/r/pocketcasts/comments/14cfy3g/pocket_casts_vs_snipd_which_podcast_app_is_best/jol3zwn/)
+
+> "I love the idea of that app but **it's far too expensive.**"
+
+— **u/sashley520**, 2025-03-24,
+[mjgcfo1](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/mjgcfo1/)
+
+> "I am using Snipd for exactly this feature. **Downside is that Snipd is $80+ per year.**"
+
+— **u/woldeselassie**, 2025-10-16,
+[njspdp5](https://reddit.com/r/pocketcasts/comments/1o4yafe/debating_whether_to_jump_ship/njspdp5/)
+
+**[INFERRED] This materially weakens §6's "no price umbrella" claim.** §6 argued there is no umbrella
+because heavy users would pay *more*. Across §4.10, §4.11 and here, **seven** distinct users now say
+the opposite — that Snipd is priced beyond what they will pay. There **is** a price umbrella. What
+§4.11 shows is that standing under it does not appear to convert: Alora was **free** and still could
+not move these users.
+
+**[VERIFIED]** And one more churn-out for the desktop gap (§4.7), which is now a *documented cause of
+loss*, not merely a request:
+
+> "I used Snipd before but **left because I couldn't use them on my laptop.**"
+
+— **u/capricino**, 2025-03-23,
+[mj9yuqe](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/mj9yuqe/)
+
+#### A sixth live competitor, and the incumbents closing in
+
+**[VERIFIED] Metacast** — named by its own creator in r/pocketcasts, with disclosure:
+*"Try apps like Snipd or Metacast - they can generate transcripts/chapters for pretty much any
+podcast... Disclaimer: I'm the creator and maintainer of Metacast"* — **u/or9ob**, 2026-01-19,
+[o0h9zeo](https://reddit.com/r/pocketcasts/comments/1qh0fyq/is_pocketcasts_plus_able_to_produce_transcripts/o0h9zeo/).
+Confirmed today: [Metacast](https://apps.apple.com/us/app/id6462012536), Metacast Incorporated,
+released **2024-09-20**, v**1.28.0**, updated **2026-05-13**, **17 ratings**. **[INFERRED]** Alive,
+actively developed, and — like Podwise and Alora — very small. That is now **three** post-2024
+entrants in this niche, none above ~80 ratings.
+
+**[VERIFIED]** Pocket Casts itself has moved in, exactly as §5.1 describes Overcast doing: a
+**"New bookmark feature in beta"** thread appeared 2023-11
+([17x8obf](https://reddit.com/r/pocketcasts/comments/17x8obf/new_bookmark_feature_in_beta/)), a
+transcripts button shipped by 2024-09
+([1fi741j](https://reddit.com/r/pocketcasts/comments/1fi741j/new_ios_app_has_a_transcripts_button/)),
+and generated transcripts were announced 2025-03
+([1jhcknh](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/)).
+Pocket Casts stands at **15,661 US ratings** (v8.19, updated 2026-08-31, iTunes Lookup today).
+
+**[INFERRED]** So §5.1's finding is not an Overcast peculiarity — it is the category pattern. **Both**
+mainstream incumbents this teardown uses as scale yardsticks (Overcast ~47.7k ratings, Pocket Casts
+~15.7k) have been adding transcripts and bookmarks since 2023. A user in that transcripts thread
+already notes the quality gap (*"does not seem to match Snipd or Apple Podcast"* — u/kenzgates,
+[lploh9s](https://reddit.com/r/pocketcasts/comments/1fi741j/new_ios_app_has_a_transcripts_button/lploh9s/)),
+so the encroachment is incomplete. But the direction is unambiguous and it is the same direction in
+both incumbents.
+
+---
+
+### 4.13 r/podcasts — the general-audience test, and it is the least favourable result in the pass
+
+§4.12 and the PKM subreddits sample people who **already** run a knowledge system. r/podcasts (the
+largest subreddit in the set, ~3.6M members) samples **ordinary podcast listeners** — the population
+any consumer app must actually convert. This subsection was the coverage hole flagged in §4.14; it is
+now partly filled, and the result is the most adverse single data point for the proposal in the whole
+teardown.
+
+#### The pain is real and popular — and almost nobody wants a tool for it
+
+**[VERIFIED]** A 2026 thread asking precisely this effort's question — **"How do you guys actually
+remember stuff from podcasts?"** — **31 upvotes, 30 comments**
+([1rx51fa](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/),
+2026-03-18, u/Short-Sentence-7141). The OP states the pain exactly as the brief does: *"I feel like I
+forget almost everything once I move on to the next episode."*
+
+**The answers are the finding.** The highest-voted replies do not ask for a capture tool. They reject
+the premise that capture is wanted:
+
+> "honestly same i just **let the information wash over me like a wave and hope for the best**"
+
+— **u/DustyShogun235**, **24 points** — the top-voted reply in the thread,
+[ob699rl](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob699rl/)
+
+> "I personally listen casually. I think that sort of **casual learning about things without
+> necessarily expecting to put it in practice is important** to foster a sense of curiosity... [notes]
+> tends to be quite rare."
+
+— **u/midasgoldentouch**, **15 points**,
+[ob5kqfo](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob5kqfo/)
+
+> "I don't try to RETAIN everything I'm hearing; I engage with the discussion as it happens... **The
+> goal for me is to enjoy the podcast and enjoy learning.**"
+
+— **u/Rev_Bottoms**,
+[ob6os0j](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob6os0j/)
+
+**[VERIFIED]** Of ~25 substantive replies, the solutions actually offered were: listen casually
+(several), pause and type into the phone's Notes app (u/CarpetEmergency8517, u/ExplanationUnique84,
+u/Best_Interest_5869), record a voice memo (u/stanlymt, u/topsidersandsunshine), read the transcript
+afterwards (u/ojutdohi, u/jdcarl14), Pocket Casts' paid **Bookmarks** feature (u/nerdmonkey), and
+**Snipd — mentioned exactly once, in a single low-scoring comment** (u/Samjam48,
+[obi0ri6](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/obi0ri6/),
+who notes *"the app is free so nothing to complain about"*).
+
+**[INFERRED] This is the demand-side ceiling made visible.** In the single most on-point thread in the
+largest podcast community, with 30 people answering a direct question about exactly the problem this
+app would solve: the winning answer is *"don't bother,"* the common workaround is the built-in Notes
+app, and the category leader gets one mention. §6 inferred that the PKM-capture behaviour is a
+"genuine but narrow niche" from indirect evidence (rating counts, the graveyard). **This is direct
+evidence, and it is narrower than §6 assumed.** Note also §4.10's u/Remote-Positive-8951 hypothesis —
+that highlight feeds *"feel useful for 3 days"* — looks less like vendor spin in this light.
+
+#### Every Snipd-titled thread in r/podcasts, 2021–2026 — and how little traction they got
+
+**[VERIFIED]** With the post-title endpoint resolved for `snipd`, the **complete** list of
+Snipd-titled r/podcasts threads across six years is **eight**, and their scores are the point:
+
+| Date | Thread | Score |
+|---|---|---|
+| 2022-10-27 | ["Snipd just launched AI audio & text summaries… on Product Hunt"](https://reddit.com/r/podcasts/comments/yendd2/snipd_just_launched_ai_audio_text_summaries_for/) (vendor post, u/shiroyacha90) | **23** |
+| 2023-06-18 | ["Pocket Casts vs. Snipd: Which Podcast App is best?"](https://reddit.com/r/podcasts/comments/14cfww1/pocket_casts_vs_snipd_which_podcast_app_is_best/) (u/quat1e) | 2 |
+| 2023-06-19 | ["Is Snipd the future of podcast apps?"](https://reddit.com/r/podcasts/comments/14dltzu/is_snipd_the_future_of_podcast_apps/) (u/Superdudeo) — **removed** | 1 |
+| 2023-09-24 | ["Won't Snipd get involved in a copyright lawsuit?"](https://reddit.com/r/podcasts/comments/16r349q/wont_snipd_get_involved_in_a_copyright_lawsuit/) (u/Jumpy-Phone9681) | 2 |
+| 2024-07-30 | ["Is there a tool out there for making YouTube clips similar to Snipd?"](https://reddit.com/r/podcasts/comments/1eg5lto/is_there_a_tool_out_there_for_making_youtube/) (u/Le_King053) | 1 |
+| 2024-11-26 | ["Does anyone here listen to just the highlights and summaries from snipd?"](https://reddit.com/r/podcasts/comments/1h08uip/does_anyone_here_listen_to_just_the_highlights/) (u/gintokiredditbr) | 0 |
+| 2024-12-02 | ["any other tool like snipd's latest 'chat with podcast' feature?"](https://reddit.com/r/podcasts/comments/1h4np7r/any_other_tool_like_snipds_latest_chat_with/) (u/vincentlius) | 1 |
+| 2025-09-29 | ["i want to sign up for Snipd just for the auto chapter feature"](https://reddit.com/r/podcasts/comments/1ntr3bz/i_want_to_sign_up_for_snipd_just_for_the_auto/) (u/woldeselassie) | 1 |
+
+**[INFERRED]** In a ~3.6M-member subreddit over six years, the category leader generated **eight**
+titled threads, of which the highest-scoring is the **vendor's own launch post** and the rest sit at
+0–2 points. Compare the 31 points earned by a thread that merely asks how people *remember* podcasts
+(§4.13 above). **The pain is popular; the product category is not.** This is the cleanest quantitative
+statement of the demand ceiling in the teardown, and it is consistent with the 1,142-vs-47,689 rating
+gap §6 already noted.
+
+**[VERIFIED] Two of these threads sharpen findings elsewhere.** First, the **corpus-coverage tax**
+(§4.3) is a *reason people don't adopt*, not merely a grumble from users:
+
+> "**The only reason why I don't use Snipd is because not all podcasts can be found on their
+> platform** so I was looking to get a tool of some kind either extension or website that can help me
+> create clips."
+
+— **u/Le_King053**, r/podcasts, 2024-07-30,
+[1eg5lto](https://reddit.com/r/podcasts/comments/1eg5lto/is_there_a_tool_out_there_for_making_youtube/)
+(Arctic Shift). The thread drew **one** reply, naming an unrelated tool.
+
+Second — and this is a direct hit on the wedge — a 2025 trial user who wants Snipd for a feature that
+**is not capture at all**:
+
+> "I am currently on a 30-day trial of Snipd and I am really liking this app. The vast majority of
+> podcasts I listen to don't have chapters. Snipd runs some process and generates chapter, usually
+> within 5 minutes. **I don't really care about the snipping feature.** However, this app is pricey;
+> $83.90 a year."
+
+— **u/woldeselassie**, r/podcasts, 2025-09-29,
+[1ntr3bz](https://reddit.com/r/podcasts/comments/1ntr3bz/i_want_to_sign_up_for_snipd_just_for_the_auto/)
+(Arctic Shift)
+
+**[INFERRED]** This is the same user who elsewhere *"ditched pocket casts for Snipd for auto generated
+chapters"* (§4.12) — so across two subreddits, the one enthusiastic recent convert in this corpus
+converted for **auto-chapters**, explicitly discounted snipping, and still calls the price too high.
+**[INFERRED]** If the feature actually pulling mainstream users toward Snipd is chapter generation
+rather than capture, then the proposed app's wedge is not merely served — it may be the wrong wedge.
+That reading is n=1 and should not be over-weighted, but it is the only direct evidence in the corpus
+about *which* feature drives a mainstream switch, and it does not favour capture.
+
+**[VERIFIED] The same asymmetry appears in post *bodies*.** Threads that mention Snipd only in
+passing, while asking for a *capability*, score an order of magnitude higher than threads about the
+product:
+
+> "Are there any good podcast apps with **real time transcripts** with no time limit? ...Snipd does
+> provide them with a subscription but from the description I think there is a **limit of 15 hrs per
+> month**?"
+
+— **u/ohyacomeon**, r/podcasts, 2023-09-17, **16 points**,
+[16l0c30](https://reddit.com/r/podcasts/comments/16l0c30/podcast_apps_ios_with_real_time_transcripts/)
+(Arctic Shift). Note the OP's own update: Spotify shipped read-along transcripts within eleven days of
+the post.
+
+> "when I looked at the ones I'm subscribed to on Snipd, I realised that all episodes are 1h to
+> 2h30mn... it's just too long."
+
+— **u/airmess1**, r/podcasts, 2023-06-29, **29 points**,
+[14mfxbi](https://reddit.com/r/podcasts/comments/14mfxbi/do_you_listen_to_podcasts_if_you_just_have_510mn/)
+(Arctic Shift) — a Snipd *user*, whose 29-point thread is about **episode length**, not capture.
+
+**[VERIFIED]** And the quota ceiling surfacing as an adoption blocker in the wild (cf. §4.4), plus the
+language gap (cf. §4.8):
+
+> "I've found Snipd which does a great job at doing the specifications described **on selected
+> podcasts in English**. Is there an alternative which works for **Spanish/German**?"
+
+— **u/felixlikesmemes**, r/podcasts, 2023-03-20,
+[11wzvrz](https://reddit.com/r/podcasts/comments/11wzvrz/app_to_search_podcast_transcript/) (Arctic Shift)
+
+**[INFERRED]** Across both endpoints the pattern is the same and it is the most robust finding in this
+subsection: **in a general-audience community, demand attaches to capabilities (transcripts, search,
+shorter episodes, other languages) and to the incumbent players, not to the capture product.** The
+highest-scoring Snipd-adjacent threads in r/podcasts are ones where Snipd is incidental. Note too that
+two capability requests here — transcripts and multi-language — were subsequently answered by
+**Spotify** and by Snipd's own 26-language support, i.e. by incumbents, not by new entrants.
+
+#### Correction to this section: r/podcasts *comment* volume is real, and 2022–23 was an active recommendation period
+
+**[VERIFIED]** A later quarterly comment sweep (yearly windows all timed out; quarters resolved)
+recovered **54 distinct Snipd-mentioning comments** in r/podcasts for 2021–2023 and 2026 Q1 — against
+the **3** this section originally reported. **The earlier "sampled, not swept" caveat was doing real
+work: the thin number was a coverage artefact, and the thread-census reading below must be qualified
+accordingly.**
+
+**What the comment corpus shows that the title census did not.** Through 2022–23, Snipd was
+**actively and enthusiastically recommended** in r/podcasts whenever someone asked for note-taking,
+highlighting or transcript features — organically, in reply to other people's questions:
+
+> "Snipd - hands down :) AI-generated chapters, transcripts, summaries, you can highlight passages by
+> tapping your headphones and get the AI extracts the key takeaways of that moment"
+
+— **u/KB_reading**, 2022-11-29, 6 points (Arctic Shift)
+
+> "I use Snipd lately which takes AI transcription of the podcast and then it send it to your note
+> taking apps which has been **a godsend when I have a gold nugget of info that I know I will never
+> find again if it doesn't get written down.** Has helped me so much since I listen to tons of podcasts"
+
+— **u/sie-b**, 2022-12-15 (Arctic Shift)
+
+> "I switched to SNIPD about year ago and I think it's actually **the best one out there.**"
+
+— **u/ScaretheLocals**, 2023-10-19, 2 points (Arctic Shift)
+
+**[VERIFIED]** It also functioned as the **named Airr replacement** after Airr's decline — three
+independent users, which corroborates §4.9 and §5 from a general-audience community:
+
+> "Any updates on an Airr replacement? I'll try Snipd but has anyone had any better luck with anything
+> else?" — **u/costa6**, 2023-11-13
+
+> "I started using Snipd as a replacement for Airr." — **u/nnamerz**, 2023-12-07
+
+> "My replacement as well. Back then choosen Airr and snipd was not as intuitive when bookmarking. But
+> after trying it again, there were improvements made... **That said, I still prefer the basic
+> capturing of Airr.**" — **u/nez329**, 2023-12-07 (Arctic Shift)
+
+#### Two caveats that keep this from reversing the section's conclusion
+
+**[VERIFIED] 1. A third of the corpus comes from four repeat accounts, one of them the vendor.** Of 54
+comments across **34** distinct authors, **18 (33%)** come from four accounts: **u/RamenNator (8)**,
+**u/shiroyacha90 (4)**, **u/snipd_app (3 — Snipd's official account)** and **u/nez329 (3)**.
+u/shiroyacha90 is also the author of the vendor launch post in the census above. **[INFERRED]** Some of
+this enthusiasm is vendor and superfan amplification rather than independent word of mouth; the
+organic base is thinner than 54 suggests, though clearly larger than 3.
+
+**2. The strongest finding in this section does not depend on comment volume at all.** The
+[July 2026 thread](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/)
+where the retention pain was stated verbatim and **all ~20 replies discussed queue management instead**
+stands unchanged, as does the vote asymmetry (31 points for "how do you remember?" versus 0–2 for every
+user-posted Snipd thread) and the Rule 1 / Rule 5 distribution block. Recommendation activity in reply
+to *other people's* questions is compatible with the category being small: it shows Snipd is the answer
+when someone asks, not that many people ask.
+
+**[INFERRED] Net effect on the verdict: unchanged, but this section is less lopsided than first
+written.** Snipd had genuine organic advocacy in a mainstream community in 2022–23. That is evidence
+the incumbent is *well-liked*, which supports (c) — a solved problem with a satisfied base — rather
+than supporting a new entrant.
+
+**[NOT ESTABLISHED — stated rather than inferred.]** The corpus shows 25 comments in 2022, 26 in 2023,
+and 3 in 2026 Q1, which *looks* like a collapse after 2023. **It is not evidence of one.** All four
+2024 and 2025 quarters are unfetched or timed out (see §4.14), so the apparent drop is a coverage gap.
+Whether Snipd's r/podcasts word-of-mouth actually declined after 2023 is **unknown**, and it would be
+worth knowing: a real decline would be the first sign of incumbent weakness this teardown has found,
+while flat volume would further support (c). **This is the single most useful remaining query.**
+
+#### The sharpest single test: the pain stated to a general audience, and nobody engages with it
+
+**[VERIFIED]** In July 2026 a r/podcasts user posted a thread that states **both halves of this
+effort's premise** and earned **15 points and ~20 replies**
+([1v4y37y](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/),
+u/in-the-name-of-allah, Arctic Shift):
+
+> "even for episodes I loved, **if you asked me a week later what I actually learned, I'd struggle to
+> give you more than one vague takeaway.** I'll hear something genuinely useful while driving, tell
+> myself I'll remember it, and it's gone by dinner. I want that stuff to [stick]"
+
+**[VERIFIED] Not one of the ~20 replies engaged with the retention problem.** Every substantive answer
+addressed *queue management* instead: Pocket Casts filters (u/SockQuirky7056, 7 points; u/sKuarecircle),
+mood-based selection (u/Princessformidable, **14 points** — the top-voted reply), binge cycles
+(u/Snake973), sorting by episode length (u/CeSeaEffBee), download queues (u/ShnakeyTed94). The OP
+repeatedly prompted for the capture angle — *"What would you want to have instead to make it easier?"* —
+and got redirected each time. One respondent volunteered the opposite view outright:
+
+> "Information wise, **it's edutainment for me so I don't worry about retaining anything.**"
+
+— **u/ninasafiri**, [ozf5iqh](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/ozf5iqh/)
+(marked as later removed)
+
+**[INFERRED]** This is the most direct available test of whether general listeners share the brief's
+premise, and the answer is that **they do not prioritise it even when it is put in front of them by a
+peer.** The audience reliably converts "how do you handle podcasts?" into a *queue/curation*
+conversation. **[INFERRED]** If a wedge exists for a mainstream audience, this corpus suggests it is in
+**queue and scheduling** — the OP's own unanswered wish was *"a calendar or something where I can
+schedule an episode when I know that I will be commuting"* — not in capture. That is well outside
+`map.md`'s scope and outside this teardown's remit, but it is where the votes went.
+
+#### Distribution: r/podcasts bans validation *and* marketing outright
+
+**[VERIFIED]** Two comments in this very thread were removed by moderators under **Rule 5**, whose text
+is explicit:
+
+> "**This comment or post is a feedback request and has been removed.** This submission violates
+> Rule 5. **Feedback requests, market research, and idea searches are not allowed in this subreddit.**
+> This is not a place to think of an idea for your podcast, app, program..."
+
+— **u/podcasts-ModTeam**,
+[ozfgijx](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/ozfgijx/)
+(Arctic Shift)
+
+**[INFERRED]** Combined with the Rule 1 self-promotion removals noted above, the largest podcast
+community on Reddit forbids **both** the customer-discovery *and* the launch-marketing activities a
+solo founder would need. Given `map.md` records no audience, no newsletter and no PKM presence, the
+practical consequence is that **neither validation nor distribution can happen there** — the PKM
+subreddits (which do tolerate it) are far smaller and are where Snipd is already entrenched.
+
+**[VERIFIED] One more competitor, unverified:** *"snipd vs apecast… I recently saw a post about
+something new (?) called ApeCast?"* — u/RonTem1, r/podcasts, 2026-04-19,
+[1sq6aow](https://reddit.com/r/podcasts/comments/1sq6aow/snipd_vs_apecast/) (Arctic Shift). The thread
+drew **no** answers, and I did not verify ApeCast's existence or status; recorded only as further
+evidence that entrants keep appearing.
+
+#### And the supply side is crowded with people building it right now
+
+**[VERIFIED]** A second 2026 r/podcasts thread is a solo builder describing **the proposed app, in the
+proposed scope, with the proposed reservations** — *"Is it possible to have an easier way of capturing
+snippets from podcasts and putting them to your notes?"*
+([1rjlr1g](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/),
+2026-03-03, u/Lucoda, 5 upvotes / 5 comments):
+
+> "I've built a version of this that works for **capturing the last 30 seconds** said on a podcast and
+> then it goes right to my obsidian vault. But building this in a **privacy-first** way that would
+> accommodate everyones different systems and tastes seems daunting... **I don't want this to be a
+> notes app, I just want it to be good at the capturing part!**"
+
+— **u/Lucoda**, r/podcasts, 2026-03-03,
+[1rjlr1g](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/)
+(Arctic Shift)
+
+**[INFERRED]** That is this effort's brief, written independently by someone else, five months ago.
+The thread drew **five** comments and no evident users.
+
+**[VERIFIED]** Its replies contain **three more** builders in the same space — u/Petty_Boys (podtalk
+studio), u/Remote-Positive-8951 (**AskAlong**, voice Q&A mid-episode — the same account that posted
+the r/ObsidianMD skeptical thread in §4.10), and u/Ok_Ad_3 (an unnamed AI marking app, replying to
+both threads). Two of these self-promotions were **removed by r/podcasts moderators** under the
+subreddit's self-promotion rule
+([od9cljr](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/od9cljr/),
+[oext0le](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/oext0le/)).
+
+**[INFERRED] Two consequences worth stating plainly.** First, **the builder-to-user ratio in these
+threads is close to 1:1** — in the capture-request thread, three of five repliers were building a
+competing product. That is a hallmark of a market with more supply enthusiasm than demand. Second,
+**r/podcasts actively removes this kind of promotion**, so the obvious cheap distribution channel for
+a cold-start solo app in the largest relevant community is **closed**. Given `map.md` records no
+audience, no newsletter and no PKM presence, that matters for go-to-market, not just for sizing.
+
+**[VERIFIED]** One more corroboration of §5.1, from a user lobbying Overcast directly:
+
+> "I've been **begging Marco to add this to Overcast**, but haven't heard back... he's still working on
+> transcripts and that's a **prereq for bookmarking w/ text extraction**, so I keep my fingers crossed."
+
+— **u/jkmcf**,
+[orf6355](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/orf6355/)
+
+**[INFERRED]** Users experiencing this pain are asking the **incumbent** to solve it, not looking for a
+new app — which is how a feature, rather than a product, gets requested.
+
+---
+
+### 4.14 Coverage ledger — exactly what was searched, and what did not resolve
+
+Recorded so that a reader can tell **searched-and-empty** apart from **not-actually-searched**, which
+is the distinction the original version of this document got wrong by accident (see the two archive
+quirks in §4.10). Route: Arctic Shift only. Terms: `snipd`, `airr`. Range 2021-01-01 → 2026-09-08,
+queried unwindowed where the server allowed it and in yearly windows where it did not. Endpoints are
+separate because the API takes different parameters for each (`body=` for comments, `title=` and
+`selftext=` for posts) — passing the wrong one returns a silent rejection, which is itself a trap
+this pass fell into and corrected.
+
+| Subreddit | Term | Result by endpoint |
+|---|---|---|
+| r/podcasts | `snipd` | 54 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); 13 in post bodies (+3 unresolved) |
+| r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
+| r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
+| r/PKMS | `snipd` | 47 in comment bodies; 3 in post titles; 7 in post bodies (+2 unresolved) |
+| r/PKMS | `airr` | 4 in comment bodies (+4 unresolved); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/PKM | `snipd` | 0 in comment bodies (searched, empty); post titles: 1 windows unresolved; post bodies: 3 windows unresolved |
+| r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; post bodies: 2 windows unresolved |
+| r/Zettelkasten | `snipd` | 5 in comment bodies; 0 in post titles (searched, empty); 0 in post bodies (searched, empty) |
+| r/Zettelkasten | `airr` | 2 in comment bodies; post titles: 2 windows unresolved; 1 in post bodies |
+| r/Overcast | `snipd` | 6 in comment bodies; post titles: 2 windows unresolved; post bodies: 1 windows unresolved |
+| r/Overcast | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; 0 in post bodies (searched, empty) |
+| r/pocketcasts | `snipd` | 46 in comment bodies; post titles: 2 windows unresolved; 2 in post bodies (+2 unresolved) |
+| r/pocketcasts | `airr` | 5 in comment bodies (+1 unresolved); post titles: 1 windows unresolved; 1 in post bodies |
+
+**How to read this.** "searched, empty" means the archive answered and returned nothing — a real
+negative. "N windows unresolved" means the server timed out on that endpoint/year and **no
+conclusion is available**; it is not evidence of absence. Where a yearly window never resolved but a
+**narrower** window inside it did, the narrow window's hits are counted and the year is still shown as
+unresolved — this is why r/podcasts shows both 3 hits and 6 unresolved windows on comments. Its real
+coverage is "one resolved quarter of 2026, plus two threads reached by traversal." Hit counts are raw rows and include
+duplicates where a post matched on both title and body, so the qualitative sections cite fewer
+distinct items than the totals here.
+
+**[VERIFIED] Totals at the time of writing: 233 hit rows / 218 distinct items retrieved, against
+~93 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
+r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
+most expensive queries for this archive.
+
+**[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD,
+r/Zettelkasten and r/pocketcasts on the comments endpoint — and those four carry essentially all the
+substantive findings. Coverage is **partial** for **r/podcasts** and poor for the `airr` term
+outside the PKM subreddits. r/podcasts is now **substantially swept, with a dated hole**: its
+`snipd` post-title endpoint resolved 2021–2026 (the eight-thread census, §4.13), and a **quarterly**
+comment sweep resolved **2021–2023 plus 2026 Q1**, recovering 54 comments where yearly windows had
+timed out on all six attempts. **The hole is 2024 and 2025 comments — all eight quarters unfetched or
+timed out.** That gap matters: the recovered corpus shows 25 comments in 2022 and 26 in 2023, so
+whether word-of-mouth held or fell after 2023 is exactly what those eight quarters would answer, and
+§4.13 flags it as the single most useful remaining query. **Do not read the low 2026 number as decline
+— read it as unfetched.** That said, the sample it yielded proved unusually
+decision-relevant (§4.13), so the remaining gap there is the highest-value item for any future pass —
+not because the verdict looks fragile, but because that is where the general-audience signal lives. r/Overcast resolved only on comments (6 hits), so its posts are unswept
+too, though §5.1's findings came from following its threads directly. **Any future pass should start
+with r/podcasts.** Note also that the highest-value find of the entire pass (§4.11,
+the Alora natural experiment) came from **following a thread's reply tree**, not from term search —
+term search located the thread, the tree carried the outcome. A future pass should budget for tree
+traversal rather than search alone.
 
 ## 5. Competitor liveness — the graveyard
 
@@ -633,6 +1698,190 @@ a **market that does not support narrow entrants**, not evidence of an opening.
 
 ---
 
+### 5.1 The graveyard is not the whole picture — the incumbent is moving in (new, pass 03b)
+
+**This is the most consequential finding of the 03b pass, and it cuts against a new entrant more
+sharply than anything in the original teardown.** §5 checked whether the *specialist* competitors
+were alive. It did not ask whether a *mainstream* player was entering the capture category. One is.
+
+**[VERIFIED]** Overcast — the mainstream incumbent that §6 uses as the scale yardstick
+(~47,690 US ratings — the API returned 47,689 and 47,696 in calls minutes apart today, versus
+47,692 recorded in §6; a live counter, so treat all three as the same figure — v2026.8.1, updated
+2026-08-24, per the iTunes Lookup API) — **shipped
+transcripts in April 2026**:
+
+> "The first update with transcripts is now in the App Store!... Transcripts of most podcasts...
+> Live-scrolling of transcripts during playback"
+
+— **u/marcoarment** (Overcast's developer), r/overcast, 2026-04-08,
+[Version 2026.4 released (Transcripts!)](https://reddit.com/r/overcast/comments/1sg7epz/version_20264_released_transcripts/)
+(Arctic Shift)
+
+**[VERIFIED]** And in a thread where a user requested exactly Snipd's core feature — a
+lock-screen/CarPlay button to bookmark a spot for later consolidation into notes — Arment
+responded that the blocker **this very document treats as the industry's unsolved problem
+(§4.2, dynamic ad insertion breaking snip timing)** is now solved on his side:
+
+> "For a long time, I've deferred implementing any sort of bookmarks/notes feature because I
+> didn't have a good solution to permanent alignment around dynamically inserted ads.
+>
+> Now I do.
+>
+> (😉)"
+
+— **u/marcoarment**, r/overcast, 2026-04-19,
+[oh9cdjj](https://reddit.com/r/overcast/comments/1sq8sih/transcripts_idea_bookmark_snippet_for_later/)
+(Arctic Shift)
+
+He immediately hedged the commitment, and the hedge should be quoted too rather than ignored:
+
+> "(This is not a feature I'm guaranteeing that I'll do, or that is particularly high in the queue
+> of things to consider doing. But it's absolutely *in* that queue. And this would definitely be
+> Premium.)"
+
+— **u/marcoarment**, same thread,
+[oh9cmao](https://reddit.com/r/overcast/comments/1sq8sih/transcripts_idea_bookmark_snippet_for_later/)
+(Arctic Shift)
+
+The originating request, from a driver — i.e. the exact hands-busy use case that is this effort's
+premise, arriving unprompted in a *mainstream player's* subreddit rather than a PKM one:
+
+> "I listen to podcasts while driving, and often I'll hear someone mention a book, app, a merch
+> sale, or even something in an ad I want to reference later. It would be great if there was a way
+> to mark that spot with a Lock Screen or CarPlay button, then some time later or when I finish
+> the podcast, those transcript snippets are consolidated into bullets"
+
+— **u/malsf**, r/overcast, 2026-04-19,
+[1sq8sih](https://reddit.com/r/overcast/comments/1sq8sih/transcripts_idea_bookmark_snippet_for_later/)
+(Arctic Shift)
+
+And a user in that thread naming the competitive overlap directly:
+
+> "This is getting a little close to snipd podcast player territory, though I'm sure they don't
+> have exclusive right to what is essentially a good and obvious idea."
+
+— **u/uncleben2019**, r/overcast, 2026-04-22,
+[ohlynmu](https://reddit.com/r/overcast/comments/1sq8sih/transcripts_idea_bookmark_snippet_for_later/)
+(Arctic Shift)
+
+**[VERIFIED]** Overcast also raised prices in the same month — new subscriptions to **$29.99/yr**
+(existing customers stay at $14.99 "for now"), per
+[marcoarment, r/overcast, 2026-04-08](https://reddit.com/r/overcast/comments/1sg88b0/increased_premium_pricing_for_new_subscriptions/)
+(Arctic Shift). One user's reaction is a precise, if small, statement of Snipd's actual competitive
+position — considered, then dismissed:
+
+> "As the price goes up though I'm going to be more tempted to try other options like Snipd.
+> **I'll probably end up back with Overcast though.** Hopefully the improvements will continue."
+
+— **u/MediocreTie2245**, r/overcast, 2026-04-09,
+[of3zfgu](https://reddit.com/r/overcast/comments/1sg88b0/increased_premium_pricing_for_new_subscriptions/)
+(Arctic Shift)
+
+**[INFERRED] Why this matters more than the graveyard.** §5 concluded the category's danger was
+that specialists die. This pass shows a second, worse dynamic for a new entrant: the capture
+feature is **becoming a checkbox inside general-purpose players with 40× the install base**. If
+Overcast ships bookmarks-to-notes as a Premium feature, the proposed app's wedge is not competing
+with Snipd's free tier alone — it is competing with a feature bundled into an app users already
+pay for and already have. **[INFERRED]** I hold this as a *risk*, not a certainty: Arment
+explicitly declined to commit, and "in the queue" from a solo developer is not a ship date. But
+it is a directional signal, from the developer himself, that the moat this document assumed
+(§4.2's ad-alignment problem being hard) is not a moat.
+
+**Unresolved, flagged rather than guessed:** a third party in these threads claims to be building
+a cross-platform audio highlighter (`highlighter.audio`, u/theowu, r/overcast 2026-04-09,
+[of95124](https://reddit.com/r/overcast/comments/1sg7epz/version_20264_released_transcripts/)).
+I **could not verify its liveness** — the domain returned HTTP 403 through my own network's
+corporate proxy (Zscaler interception, not a site failure). Its status is unknown, not dead.
+
+---
+
+### 5.2 A live competitor §5 missed, and one more death (added by pass 03b)
+
+§5 checked the four competitors the ticket named. Reddit surfaced two more, one of which is **alive
+and shipping** — so the graveyable-category framing in §5 needs a caveat.
+
+| Product | Status 2026-09-07 | Evidence |
+|---|---|---|
+| **Podwise** (`podwise.ai`) | **ALIVE** | [Podwise: Podcasts, Notes, AI](https://apps.apple.com/us/app/id6499190232), PODWISE PTY LTD, id **6499190232**, v**1.3.3**, updated **2026-08-31**, **4.77★ / 81 ratings**, released **2024-12-13**. `podwise.ai` serves HTTP 200, titled "Podwise - AI Copilot for Podcast Listeners". (iTunes Lookup + live HTTP, today.) |
+| **Momento** (`app.momento.fm`) | **DEAD** | `app.momento.fm` is **NXDOMAIN**; `momento.fm` resolves (192.99.45.15) but returns **404**. Was a live excerpt-and-export competitor in 2022 per the r/PKMS thread below. |
+
+**[VERIFIED]** Podwise was positioned against Snipd on precisely the PKM axis this effort cares
+about, in a comparison posted by the vendor's own account:
+
+> "**TL;DR** If your objective in using a Podcast AI tool is to enhance note-taking, learning, and
+> knowledge organization, then Podwise stands out as the superior choice. On the other hand, if
+> you're focused on elevating your listening experience and replacing your traditional podcast
+> player, Snipd is the ideal solution."
+
+— **u/podwise**, r/PKMS, 2024-04-14, 5 points,
+[1c3phpj](https://reddit.com/r/PKMS/comments/1c3phpj/snipd_vs_podwise_for_podcast_notetaking/)
+(Arctic Shift). Note this is **vendor marketing**, quoted as evidence of *positioning*, not as a
+neutral assessment.
+
+**[INFERRED] Two corrections to §5's framing.** First, the category is **not** a clean graveyard
+with one survivor: a second player entered in **December 2024** — *after* Airr and around when
+Fathom/Recast were dying — and is still shipping in 2026. Second, and more soberly for the
+proposal: after ~21 months Podwise has **81 US ratings** against Snipd's 1,142. **[INFERRED]** That
+is what entering this category late looks like from the outside, and it is the closest available
+analogue to the proposed app's own cold start — a data point §6's MRR discussion did not have.
+It is directionally *unfavourable*: a funded-looking team with an Obsidian/Readwise integration
+and a clear PKM wedge reached roughly **7%** of the incumbent's rating count in nearly two years.
+
+**[VERIFIED] Podwise has *not* pivoted away from the PKM wedge, which makes it the useful contrast
+to Alora (§4.11).** Its App Store description today still leads on summaries, key-insight
+extraction, searchable transcripts and *"export my podcast notes directly into Notion... All my
+podcast learning goes right into my personal knowledge system"*, and its latest release notes
+(v1.3.3, 2026-08-31) add eight translation languages — i.e. continued investment. (Its rating count
+read 81 and then 80 in calls minutes apart today; a live counter, treat as ~80.)
+
+**[INFERRED]** Two entrants, two strategies, and both are informative: Alora tried the capture wedge,
+measured it, and **abandoned** it; Podwise has **kept** an AI-summary/PKM-export wedge and is still
+shipping — at ~80 ratings after 21 months. So persistence in this niche is possible, but the
+observable ceiling is low. Neither path shows a route to the map's $2–5k MRR bar.
+
+---
+
+### 5.3 NoteCast — a fifth competitor, alive, and it ships the two features §4.7/§6 call the gaps
+
+**[VERIFIED]** Reddit named a competitor this teardown never checked (§4.10, u/ZettelCasting, 2022).
+Checked today: **`notecast.app` serves HTTP 200** and is a direct podcast-capture competitor. Its
+own homepage copy:
+
+> "Listen to Podcasts, Capture What You Hear — Instantly transcribe 30-second snippets. View as
+> digital notes & add your own insights. Click notes to listen again."
+>
+> "**'Hey NoteCast, save that!'** NoteCast instantly transcribes 30 seconds of audio into a digital
+> note. Tapping the icon also initiates the transcription."
+>
+> "Use the **NoteCast desktop portal** to save, search, and share the knowledge you've acquired"
+
+— [notecast.app](https://notecast.app/), read 2026-09-07
+
+**[VERIFIED]** Wayback CDX shows continuous operation: first capture **2019-03-21**, still HTTP 200
+at **2026-06-08** — i.e. it **predates Snipd's 2021 launch and outlived Airr, Fathom, Recast and
+Momento.**
+
+**[INFERRED] Two findings here are directly adverse to this effort's remaining wedges.**
+
+1. **Voice-triggered capture already exists in a shipping product.** "Hey NoteCast, save that!" is
+   a hands-free capture surface *beyond* Snipd's five (§1). Any claim that voice capture is an
+   unserved wedge is falsified.
+2. **The desktop client — the single most-requested unserved feature in this entire teardown
+   (§4.7, five independent sources 2021–2026, and the thing §6 lists as a real unmet need — ships
+   here.** So the gap is not unserved by the *market*; it is unserved by *Snipd*. **[INFERRED]**
+   That reframes §4.7: those users are not an unserved market waiting for a new entrant, they are
+   users who could already switch to NoteCast and largely have not.
+
+**Explicitly not established — stated rather than estimated.** I could find **no iOS app** for this
+NoteCast (App Store search returns unrelated apps: "NoteCast AI" by iCubemedia with 0 ratings,
+meeting-notes tools, etc.). So I **cannot** verify its platform coverage, user base, pricing, or
+whether it is meaningfully used. **[INFERRED]** A seven-year-old product with no discoverable iOS
+listing and no ratings anywhere is more likely a low-traction survivor than a real threat to Snipd
+— but "low-traction survivor in this exact niche, for seven years" is itself the most on-point
+datum available about the ceiling a new entrant would face.
+
+---
+
 ## 6. Is the market saturated? The three-way verdict
 
 The ticket asks whether the complaint pattern indicates **(a)** an unmet need a new entrant could
@@ -640,6 +1889,12 @@ serve, **(b)** a category users try and abandon because the need is weaker than 
 **(c)** a solved problem with a satisfied base.
 
 ### Verdict: predominantly (c), with a material (b) component, and (a) only in places this effort has ruled out of scope.
+
+> **Amended by pass 03b (§6.1).** The verdict stands, but its *reasoning* on point (a) changed:
+> Reddit shows a real cohort wanting a cheaper, less-AI alternative (§4.11), so (a)-style demand is
+> **no longer absent from the record**. It is instead **answered** — five entrants tried to serve it
+> and none converted the demand, most tellingly Alora, which built the capture features free and
+> then removed them. Read §4.11 and §6.1 before relying on the paragraphs below.
 
 **The case for (c) — solved problem, satisfied base. This is the dominant reading.**
 
@@ -660,7 +1915,12 @@ serve, **(b)** a category users try and abandon because the need is weaker than 
   are on the gym"*). That is retention, not churn.
 - **[VERIFIED]** Willingness-to-pay is *above* the current price for heavy users
   (*"Would be willing to pay double, maybe triple"* — cali_guy_0024), so there is no price umbrella
-  for an undercutter either.
+  for an undercutter either. **[CORRECTED by pass 03b — see §4.12.]** This was wrong as a general
+  claim. It holds for the *heaviest* users only. Reddit produced **seven** distinct users saying
+  Snipd is priced beyond what they will pay (§4.10: redmelon42, Barycenter0; §4.11: Blackgirlmagic23,
+  lefteyes; §4.12: quat1e, sashley520, woldeselassie). **A price umbrella exists.** The reason it does
+  not rescue the proposal is §4.11: Alora undercut all the way to **free** and still failed to move
+  these users.
 - **[VERIFIED]** Price has been flat at $6.99/mo for ~20 months with weekly shipping — a stable,
   actively-maintained incumbent, not a stagnating one.
 - **[VERIFIED]** The specific interaction the proposed app names as its wedge — one-tap,
@@ -719,7 +1979,9 @@ Three real, durable, four-year-unserved gaps emerged. Each is a problem for this
 - The brief's premise that capture friction is unsolved is **falsified**. It is solved, five ways,
   free, by a live and actively-shipping incumbent.
 - The remaining defensible wedges are the two the map has ruled out of scope (boundaries; desktop).
-- There is **no price umbrella**: free covers capture + export; heavy users want to pay *more*.
+- ~~There is **no price umbrella**~~ — **corrected**: an umbrella does exist (seven price-resistant
+  users, §4.12), but §4.11 shows undercutting to free did not convert it. Free *also* covers capture
+  + export in Snipd's own tier, and the heaviest users want to pay *more*.
 - **The $2–5k MRR bar in context.** At Snipd's $83.90/yr, $3k MRR ≈ **~430 paying annual
   subscribers**. That number is not absurd on its face. But: the category leader — funded ($700k),
   five people, four-and-a-half years, in-house ASR, weekly releases, Ali Abdaal and swyx
@@ -737,6 +1999,145 @@ if Snipd's rating count were shown to be falling / the app to have stopped shipp
 map's scope were widened to include boundary detection or a desktop surface. None of those is
 established by the evidence I could reach.
 
+### 6.1 Verdict restated after the Reddit pass (03b, 2026-09-07)
+
+The test set out immediately above has now actually been run, so it must be answered rather than
+left standing as a hypothetical.
+
+**Did Reddit show "a large cohort of *ex-Snipd* users describing why they left"? No — but it did
+find real ex-users, and their reasons were not the predicted ones.** The pass found **three**
+churn or churn-adjacent accounts, all n=1, none sharing a reason with the others:
+
+1. **Offline dependency** — the "Snipd Dealbreaker" thread (§4.10): *"dead in the water on a flight
+   to LA."*
+2. **Technical instability** — u/Remixer96 (§4.10, r/PKMS): *"Snipd hadn't been the most technically
+   stable app either."*
+3. **AI maximalism + feed curation + freemium** — u/Ok-Effort-8356 (§4.10): *"overusing the ai
+   functions and losing the notes that I actually took myself"*, *"pushing tech- and finance- and
+   self-optimization-bro content"*, *"they ask you to pay for that with their freemium model. I will
+   not!"*
+
+Against that: fresh switching-*in* and conversion evidence (§4.10: u/Psychsatani, u/doyouhavesauce,
+u/Tutwiler), and a dissatisfied 2026 research user who **still** advises against competing with
+Snipd on capture (§4.10: u/Good-Writer5279). ****Superseded — see §4.11.** A deeper pass on the
+same subreddits found that the cohort *does* exist and *does* share a reason: the **2023 paywall**
+plus **AI-maximalism**, in a 25-upvote thread titled "Now that Snipd is no longer free has anyone
+found any decent alternatives?" running 2023→2026, with at least four users independently
+describing the same wanted product (cheaper, less AI, user-controlled clips, exportable).
+
+**So the stated condition for revising toward (a) was in fact met — and the verdict still does not
+move, for a stronger reason than the one originally given.** §4.11 documents the natural experiment
+that followed: **five** attempts to serve exactly that demand, of which two are dead, one is
+abandoned, and the most on-point — **Alora Podcasts**, built *by a churned paying Snipd subscriber*,
+given away free to a warm audience of ex-Snipd users — **shipped the capture features and then
+removed them**, its founder concluding they *"didn't really move the needle in terms of getting
+people to switch."* Stated demand was real; revealed demand was not.
+
+**Verdict: unchanged — predominantly (c), with a material (b) component.** The reason it is
+unchanged is not that the new evidence was neutral; it is that the new evidence pointed the *same
+direction* on the specific question of whether users abandon Snipd, and where it pointed a new
+direction, it pointed **against** a new entrant, not for one.
+
+**What did change — the amendments below, all adverse to the proposal.** The first is new and is
+the most important single finding of the pass:
+
+0. **The premise has already been field-tested by others, and it failed.** §4.11: five entrants
+   tried to serve the ex-Snipd/cheaper/less-AI demand; two are dead, one abandoned, and Alora —
+   free, built by a churned Snipd subscriber, with ex-Snipd users queuing for invites — **removed
+   the capture features because they "didn't move the needle."** **[INFERRED]** No other evidence in
+   this teardown comes as close to a direct test of the proposed app's thesis, and none is as
+   negative.
+
+
+1. **The wedge's moat is weaker than §4.2 assumed.** §4.2 treats dynamic-ad-insertion misalignment
+   as a hard, unsolved problem — implicitly, a barrier protecting anyone who solves capture.
+   Overcast's developer states he has solved it and has bookmarks/notes "absolutely *in* that
+   queue" as a Premium feature (§5.1). **[INFERRED]** A wedge that a 47,689-rating incumbent can
+   add as a checkbox is not a business.
+2. **A new failure mode exists, and it is architectural, not a bug.** Cloud-dependent capture does
+   not work offline (§4.10). **[INFERRED]** This is a genuine differentiation opportunity — an
+   on-device capture app would beat Snipd on a plane — but the evidence for demand is **n=1**, and
+   on-device ASR at quality is a much harder build for a solo developer than a cloud call. I am
+   recording it as a real gap with insufficient evidence to justify a build, not as a wedge.
+3. **Confidence in the taxonomy rose (medium → medium-high) without changing the conclusion.**
+   Independent replication of themes 4.1/4.6/4.7 in a differently-biased sample (§4.10). Rising
+   confidence in a taxonomy whose thrust is "power users want more, they are not leaving" is
+   itself a mildly negative update for a new entrant.
+
+4. **A closer cold-start analogue now exists, and it is discouraging.** §6 could only compare
+   against Snipd's 1,142 ratings after 4.5 years. Pass 03b found **Podwise** (§5.2): entered
+   **Dec 2024** with an explicit PKM/note-taking wedge and Obsidian+Readwise integrations, still
+   shipping in 2026, and at **81 US ratings** — roughly **7%** of Snipd's count after ~21 months.
+   **[INFERRED]** This is the nearest observable proxy for "what happens when a competent new
+   entrant attacks Snipd on the PKM axis," and the answer so far is: it survives, and it stays
+   very small.
+5. **One genuinely pro-(a) finding, recorded without inflation.** Two users balk at Snipd's paywall
+   (§4.10, r/PKMS subsection: u/redmelon42 *"I think they overpriced"*; u/Barycenter0 *"darn, paid
+   subscription"*), and a 2026 power user asks outright for alternatives (u/Hour_Papaya_5583).
+   **[INFERRED]** This is real evidence of a price-sensitive and partly dissatisfied segment, and
+   it is the strongest counter-signal in the pass. It stops short of moving the verdict because
+   none of these users demonstrates willingness to *pay a competitor* — two describe using Snipd
+   *less*, and the third's named gaps are desktop, citation links and templating, i.e. §4.7/§4.6
+   items that are out of scope or backlog rather than capture.
+
+**Consequence for the $2–5k MRR bar.** Unchanged in arithmetic (~430 annual subscribers at Snipd's
+price), worse in context: the same narrow niche must now be won against a free tier that does the
+headline feature, a possible Premium checkbox in a mainstream player with ~40× the ratings base,
+**and** a live late entrant (Podwise) that has managed 81 ratings in 21 months trying more or less
+this exact strategy. **[INFERRED]** My recommendation against proceeding on the capture-friction
+premise is **strengthened**, not weakened, by the Reddit pass.
+
+6. **The "unmet need" list in §6 shrank.** §6 named three real gaps: desktop, snip boundaries, and
+   export fidelity. Pass 03b found that **desktop capture-and-search already ships in NoteCast**
+   (§5.3), alongside voice-triggered capture — and NoteCast has existed since **2019** without
+   displacing anyone. **[INFERRED]** A gap that a competitor has served for seven years without
+   winning is not an unserved need; it is evidence that serving it does not win.
+
+7. **Incumbent encroachment is the category pattern, not an Overcast quirk.** §4.12: Pocket Casts
+   (~15.7k ratings) has shipped bookmarks (beta 2023-11), a transcripts button (2024-09) and
+   generated transcripts (2025-03). With Overcast (§5.1), **both** mainstream yardsticks are moving
+   into this feature set. **[INFERRED]** Quality gaps remain, so the encroachment is incomplete —
+   but a new entrant would be racing two incumbents into its own headline feature.
+8. **Capture-only entrants get relegated to second-app status.** §4.12: the dominant posture among
+   Pocket Casts users who adopt Snipd is **running both apps** (u/incogenator states this six times
+   over 18 months), because Snipd still lacks player fundamentals after four years. **[INFERRED]** A
+   solo developer would face the same fork: build a full player, or accept being permanently
+   secondary.
+
+9. **The general-audience demand test came back worse than §6 assumed.** §4.13: in r/podcasts' most
+   on-point 2026 thread (31 upvotes, 30 comments, asking literally "How do you guys actually remember
+   stuff from podcasts?"), the **top-voted answer is "let the information wash over me like a wave and
+   hope for the best" (24 points)**, the common workaround is the built-in Notes app, and Snipd is
+   mentioned **once**. **[INFERRED]** §6 inferred a narrow niche from rating counts; this is direct
+   evidence and the niche is narrower still. Most listeners do not want to capture — they want to enjoy.
+10. **Supply enthusiasm exceeds demand, and the obvious distribution channel is closed.** §4.13: in the
+    r/podcasts thread where a solo builder describes *this exact app* ("capturing the last 30 seconds…
+    right to my obsidian vault… I just want it to be good at the capturing part"), **three of five
+    repliers were building competing products**, and r/podcasts moderators **removed** two such posts
+    under its self-promotion rule. **[INFERRED]** A cold-start solo app with no audience (per `map.md`)
+    cannot market in the largest relevant community, and would be one of at least four teams currently
+    chasing the same idea.
+
+11. **Distribution is structurally blocked in the largest relevant community.** §4.13: r/podcasts
+    (~3.6M members) bans self-promotion (Rule 1) **and** feedback requests / market research / idea
+    searches (Rule 5), with removals observed in both threads this pass examined. **[INFERRED]** A solo
+    founder with no audience (per `map.md`) can neither validate nor launch there; the communities that
+    do permit it are far smaller and already Snipd's home turf.
+12. **Where the mainstream votes actually go is queue and scheduling, not capture.** §4.13: a 2026
+    thread stating the retention pain verbatim drew 15 points and ~20 replies, and **not one engaged
+    with retention** — every substantive answer was about queue management, with mood-based selection
+    the top-voted reply at 14 points. **[INFERRED]** If a mainstream wedge exists here it is scheduling
+    ("a calendar… when I know that I will be commuting", the OP's own unanswered wish), which is
+    outside `map.md`'s scope. Capture is not what this audience asks for even when prompted.
+
+**What would now change the verdict** (replacing the superseded list above): a cohort of ex-Snipd
+users with a *shared* reason for leaving (the three found share none); evidence that Overcast has
+shipped and then *failed* at bookmarks/notes; corroboration that offline capture is a widely-felt
+need rather than n=1; evidence that the price-resistant segment (§4.10) will *pay a competitor*
+rather than merely use Snipd less; or a scope widening in `map.md` to boundary detection or
+on-device capture. **Note that "widen scope to desktop" is no longer on this list** — §5.3 shows
+that ground is already occupied without commercial effect.
+
 ---
 
 ## 7. Confidence and gaps
@@ -746,18 +2147,49 @@ surfaces, current pricing ($0 / $11.90 mo / $83.90 yr), free-vs-paid split, App 
 version cadence, funding ($700k pre-seed, Wingman + Acequia), 2022 team size (five), the Obsidian
 plugin install count, and the liveness/death status of Airr, Fathom, Recast and Podurama.
 
-**Medium confidence:** the complaint *taxonomy*. The themes recur across independent sources
-(App Store, Product Hunt, GitHub, HN), which is reassuring, but the negative-review sample is
-~30 reviews and Apple's surfacing is biased positive.
+**High confidence on the go/no-go conclusion (raised by pass 03b):** not because the sentiment
+sample got large, but because the pass replaced sentiment with two harder classes of evidence.
+**(a) Observed competitor outcomes** (§4.11): five entrants attacked this niche and none converted the
+demand, including one that gave the capture features away free and then withdrew them. **(b) A direct
+general-audience demand test** (§4.13): asked point-blank how they remember podcast content, 30
+r/podcasts users voted "don't bother" to the top and named the built-in Notes app more often than any
+product. Outcomes and votes are verifiable facts rather than opinions, and both point the same way.
+
+**Medium-high confidence (raised from medium by pass 03b):** the complaint *taxonomy*. The themes
+recur across independent sources (App Store, Product Hunt, GitHub, HN), and **pass 03b reproduced
+themes 4.1, 4.6 and 4.7 in an independent Reddit sample with different selection bias** without
+contradicting any of them (§4.10). The App Store sample is still ~30 reviews and biased positive;
+the Reddit sample is small and concentrated in one 2021 launch thread. Neither alone would carry
+it; the agreement between them is what raises confidence. One theme was **added** by 03b —
+offline/cloud dependency (§4.10) — and that one is **low confidence, n=1**.
 
 **Low confidence / explicitly unknown — not estimated:**
 - Snipd's revenue, MRR, paying-subscriber count, conversion rate, churn. **No public data exists.**
 - Snipd's true user count. Only unaudited marketing copy ("hundreds of thousands").
 - Whether Snipd raised after 2022. No announcement found; absence of evidence only.
 - Current team size (last figure is 2022's "five").
-- **Reddit sentiment entirely** — r/podcasts, r/ObsidianMD, r/PKM, r/Zettelkasten were all
-  inaccessible. **A follow-up pass with working Reddit access is the highest-value remaining
-  research action**, specifically hunting for churned-out users, which is the one thing that could
-  move the verdict.
-- Whether private/Patreon RSS snipping now works in 4.1.21.
+- ~~**Reddit sentiment entirely**~~ — **RESOLVED by pass 03b, 2026-09-07 (issue #11).** Reddit was
+  searched via the Arctic Shift archive; direct Reddit access is still 403 (route table, §4.10).
+  Findings are in **§4.10** (taxonomy) and **§5.1** (competitive), and the verdict is restated in
+  **§6.1**. Outcome in one line: **the hunt for churned-out users succeeded — there is a cohort, it
+  formed around the 2023 paywall and Snipd's AI-maximalism (§4.11) — but the verdict still did not
+  move toward (a), because the same threads record five attempts to serve that cohort, of which the
+  most on-point (Alora, free, built by a churned Snipd subscriber) shipped the capture features and
+  then removed them for failing to drive switching.** The pass's other material findings were also
+  adverse: Overcast entering the capture category (§5.1) and NoteCast already shipping the desktop
+  gap since 2019 (§5.3). What remains genuinely unknown on Reddit:
+  - Per-subreddit outcomes are in the **coverage ledger (§4.14)**, which also records which
+    subreddit-year windows never resolved. Headline: **r/PKMS and r/ObsidianMD carried nearly all
+    the signal**, with a smaller but on-point r/Zettelkasten thread and six r/Overcast comments.
+    r/PKM was searched-and-empty for `snipd`/`airr` on the comments endpoint. Do not read that
+    empty as "no discussion of the pain" (04 found plenty); read it as "no *Snipd-specific*
+    discussion in that community."
+  - **X/Twitter remains entirely unsearched** (as in 04). The two switching-in testimonials in §4.9
+    are X posts found via Snipd's own marketing page, not via a search of X.
+  - Whether the offline complaint (§4.10) generalises. It is n=1 and uncorroborated in the App
+    Store corpus.
+- Whether private/Patreon RSS snipping now works in 4.1.21. **Partly narrowed by pass 03b**: a
+  2022 r/Zettelkasten user reports *"Can't transcribe snips from private RSS feeds"* (§4.10), and
+  Snipd's team said in 2022 it "will definitely come" without a date. So it was **still broken as of
+  late 2022**; its status in 4.1.21 remains unverified.
 - Snipd's Android footprint (Google Play was not checked; the map scopes the decision to iOS).
