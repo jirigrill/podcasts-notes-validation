@@ -1366,6 +1366,18 @@ analogue to the proposed app's own cold start — a data point §6's MRR discuss
 It is directionally *unfavourable*: a funded-looking team with an Obsidian/Readwise integration
 and a clear PKM wedge reached roughly **7%** of the incumbent's rating count in nearly two years.
 
+**[VERIFIED] Podwise has *not* pivoted away from the PKM wedge, which makes it the useful contrast
+to Alora (§4.11).** Its App Store description today still leads on summaries, key-insight
+extraction, searchable transcripts and *"export my podcast notes directly into Notion... All my
+podcast learning goes right into my personal knowledge system"*, and its latest release notes
+(v1.3.3, 2026-08-31) add eight translation languages — i.e. continued investment. (Its rating count
+read 81 and then 80 in calls minutes apart today; a live counter, treat as ~80.)
+
+**[INFERRED]** Two entrants, two strategies, and both are informative: Alora tried the capture wedge,
+measured it, and **abandoned** it; Podwise has **kept** an AI-summary/PKM-export wedge and is still
+shipping — at ~80 ratings after 21 months. So persistence in this niche is possible, but the
+observable ceiling is low. Neither path shows a route to the map's $2–5k MRR bar.
+
 ---
 
 ### 5.3 NoteCast — a fifth competitor, alive, and it ships the two features §4.7/§6 call the gaps
