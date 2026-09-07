@@ -984,9 +984,10 @@ different selection bias (self-selected complainers in PKM communities, not Appl
 "most helpful" ordering), and it **reproduced themes 4.1, 4.6 and 4.7 without contradicting any
 of them**. Independent replication across differently-biased samples is what should raise
 confidence. It stops short of "high" because the Snipd-specific Reddit volume is itself modest
-(see the coverage ledger, §4.12) and concentrated in two threads — the 2021 r/ObsidianMD launch
-thread and the 2022–24 r/PKMS "Snipd vs Airr" thread — rather than spread across many independent
-posters.
+(see the coverage ledger, §4.13). Note that later passes broadened this considerably: the corpus now
+spans the 2021 r/ObsidianMD launch thread, the 2022–24 r/PKMS "Snipd vs Airr" thread, the 2023–26
+r/ObsidianMD "no longer free" thread (§4.11), a r/Zettelkasten driving thread, and 46 r/pocketcasts
+comments (§4.12) — so concentration is much less of a concern than when this paragraph was written.
 
 ---
 
@@ -1141,7 +1142,139 @@ could: it was served, twice, free, and the market did not move.**
 
 ---
 
-### 4.12 Coverage ledger — exactly what was searched, and what did not resolve
+### 4.12 r/pocketcasts — the switching-cost evidence the ticket asked for
+
+The ticket named r/pocketcasts and r/Overcast specifically, for switching-cost evidence. r/pocketcasts
+resolved with **46 Snipd-mentioning comments (2022–2026)**, the second-richest vein in the pass. All
+Arctic Shift. It is the best available record of how mainstream-player users actually respond to the
+capture feature, and it complicates §4.9 in **both** directions.
+
+#### Users do switch fully, and they say why
+
+**[VERIFIED]** Complete switch-outs from Pocket Casts, unprompted:
+
+> "Snipd. **I uninstalled pocket casts a week ago.** The ability to search for something that was
+> said in an episode, and then easily export it as text is killer for me."
+
+— **u/hey_ulrich**, 2023-06-18,
+[joky7vu](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/joky7vu/)
+
+> "**I have moved over entirely to Snipd.** I didn't see that coming, but I have. That said, **I'm
+> not currently *doing* much with the snips I'm taking.** But I find it very reassuring to know I am
+> 'bookmarking' bits of episodes"
+
+— **u/robertandrews**, 2023-12-04,
+[kbxf8qt](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/kbxf8qt/)
+
+> "Had been using Pocketcasts for years, it is a great app but there as some cool AI features in
+> Snipd that **made me switch.**"
+
+— **u/bdergez**, 2024-04-05,
+[ky5xld3](https://reddit.com/r/pocketcasts/comments/1buukav/why_are_the_rating_low_in_play_store/ky5xld3/)
+
+> "**i ditched pocket casts for Snipd** for auto generated chapters... This is a killer feature for
+> me."
+
+— **u/woldeselassie**, 2025-10-29,
+[nm21rrc](https://reddit.com/r/pocketcasts/comments/1oh3xjr/episode_chapters/nm21rrc/)
+
+**[INFERRED]** This *strengthens* §4.9's core claim (churn runs **into** Snipd) with four more
+independent cases, and it establishes that the capture/transcript feature set is genuinely
+switch-worthy for some mainstream users. Note u/robertandrews' admission though — he switched for
+the *reassurance* of bookmarking, while not actually using the snips. **That is the stated-vs-revealed
+gap of §4.11 appearing inside a successful conversion.**
+
+#### But the dominant pattern is dual-use, not switching
+
+**[VERIFIED]** The most common posture by far is running both apps and wishing they were one:
+
+> "I'm still using both pocketcasts and Snipd. I feel at the rate Snipd is going **they won't ever
+> cover the general features of pocketcasts** yet have become central to my listening flow for those
+> favorite episodes"
+
+— **u/incogenator**, 2023-12-04,
+[kbx8hue](https://reddit.com/r/pocketcasts/comments/unzd2n/feature_consideration_snips_granular_chapters/kbx8hue/)
+(u/incogenator posts this same dual-use position **six** separate times, 2023-06 → 2024-12)
+
+> "I've been using Snipd daily for months, having come from Pocket Casts. **I'm really starting to
+> miss Pocket Cast's approach to episode and feed management**, even though I really like Snipd's
+> snipping features. I'd like the apps to merge functionality."
+
+— **u/gklj9786**, 2023-10-16,
+[k522h6e](https://reddit.com/r/pocketcasts/comments/16lm2xo/what_podcast_app_did_you_switch_to_while/k522h6e/)
+
+**[INFERRED]** This is a **direct cost warning for a capture-only new entrant**, and it corroborates
+§4.8's "player fundamentals lag" theme from a different community. Users who adopt a capture app for
+capture keep a *second*, general-purpose app for playback — meaning a new entrant must either ship
+full player fundamentals (queues, filters, silence-trim, playlists, video) or accept being a
+permanent secondary app. Snipd, four years and $700k in, is still described as not having closed that
+gap.
+
+#### Price is the single most-repeated objection in this subreddit
+
+**[VERIFIED]** Three independent users, unprompted:
+
+> "I paid a one off payment for Pocket Casts years ago which was nice but **I won't pay a monthly or
+> yearly for Snipd.**"
+
+— **u/quat1e**, 2023-06-18,
+[jol3zwn](https://reddit.com/r/pocketcasts/comments/14cfy3g/pocket_casts_vs_snipd_which_podcast_app_is_best/jol3zwn/)
+
+> "I love the idea of that app but **it's far too expensive.**"
+
+— **u/sashley520**, 2025-03-24,
+[mjgcfo1](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/mjgcfo1/)
+
+> "I am using Snipd for exactly this feature. **Downside is that Snipd is $80+ per year.**"
+
+— **u/woldeselassie**, 2025-10-16,
+[njspdp5](https://reddit.com/r/pocketcasts/comments/1o4yafe/debating_whether_to_jump_ship/njspdp5/)
+
+**[INFERRED] This materially weakens §6's "no price umbrella" claim.** §6 argued there is no umbrella
+because heavy users would pay *more*. Across §4.10, §4.11 and here, **seven** distinct users now say
+the opposite — that Snipd is priced beyond what they will pay. There **is** a price umbrella. What
+§4.11 shows is that standing under it does not appear to convert: Alora was **free** and still could
+not move these users.
+
+**[VERIFIED]** And one more churn-out for the desktop gap (§4.7), which is now a *documented cause of
+loss*, not merely a request:
+
+> "I used Snipd before but **left because I couldn't use them on my laptop.**"
+
+— **u/capricino**, 2025-03-23,
+[mj9yuqe](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/mj9yuqe/)
+
+#### A sixth live competitor, and the incumbents closing in
+
+**[VERIFIED] Metacast** — named by its own creator in r/pocketcasts, with disclosure:
+*"Try apps like Snipd or Metacast - they can generate transcripts/chapters for pretty much any
+podcast... Disclaimer: I'm the creator and maintainer of Metacast"* — **u/or9ob**, 2026-01-19,
+[o0h9zeo](https://reddit.com/r/pocketcasts/comments/1qh0fyq/is_pocketcasts_plus_able_to_produce_transcripts/o0h9zeo/).
+Confirmed today: [Metacast](https://apps.apple.com/us/app/id6462012536), Metacast Incorporated,
+released **2024-09-20**, v**1.28.0**, updated **2026-05-13**, **17 ratings**. **[INFERRED]** Alive,
+actively developed, and — like Podwise and Alora — very small. That is now **three** post-2024
+entrants in this niche, none above ~80 ratings.
+
+**[VERIFIED]** Pocket Casts itself has moved in, exactly as §5.1 describes Overcast doing: a
+**"New bookmark feature in beta"** thread appeared 2023-11
+([17x8obf](https://reddit.com/r/pocketcasts/comments/17x8obf/new_bookmark_feature_in_beta/)), a
+transcripts button shipped by 2024-09
+([1fi741j](https://reddit.com/r/pocketcasts/comments/1fi741j/new_ios_app_has_a_transcripts_button/)),
+and generated transcripts were announced 2025-03
+([1jhcknh](https://reddit.com/r/pocketcasts/comments/1jhcknh/generated_transcript_is_coming/)).
+Pocket Casts stands at **15,661 US ratings** (v8.19, updated 2026-08-31, iTunes Lookup today).
+
+**[INFERRED]** So §5.1's finding is not an Overcast peculiarity — it is the category pattern. **Both**
+mainstream incumbents this teardown uses as scale yardsticks (Overcast ~47.7k ratings, Pocket Casts
+~15.7k) have been adding transcripts and bookmarks since 2023. A user in that transcripts thread
+already notes the quality gap (*"does not seem to match Snipd or Apple Podcast"* — u/kenzgates,
+[lploh9s](https://reddit.com/r/pocketcasts/comments/1fi741j/new_ios_app_has_a_transcripts_button/lploh9s/)),
+so the encroachment is incomplete. But the direction is unambiguous and it is the same direction in
+both incumbents.
+
+---
+
+### 4.13 Coverage ledger — exactly what was searched, and what did not resolve
 
 Recorded so that a reader can tell **searched-and-empty** apart from **not-actually-searched**, which
 is the distinction the original version of this document got wrong by accident (see the two archive
@@ -1160,12 +1293,12 @@ this pass fell into and corrected.
 | r/PKMS | `snipd` | 47 in comment bodies; 3 in post titles; 7 in post bodies (+2 unresolved) |
 | r/PKMS | `airr` | 4 in comment bodies (+4 unresolved); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/PKM | `snipd` | 0 in comment bodies (searched, empty); post titles: 1 windows unresolved; post bodies: 3 windows unresolved |
-| r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; post bodies: 2 windows unresolved |
 | r/Zettelkasten | `snipd` | 5 in comment bodies; 0 in post titles (searched, empty); 0 in post bodies (searched, empty) |
 | r/Zettelkasten | `airr` | 2 in comment bodies; post titles: 2 windows unresolved; 1 in post bodies |
 | r/Overcast | `snipd` | 6 in comment bodies; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/Overcast | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
-| r/pocketcasts | `snipd` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/pocketcasts | `snipd` | 46 in comment bodies; post titles: 3 windows unresolved; post bodies: 6 windows unresolved |
 | r/pocketcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 
 **How to read this.** "searched, empty" means the archive answered and returned nothing — a real
@@ -1174,18 +1307,21 @@ conclusion is available**; it is not evidence of absence. Hit counts are raw row
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 104 hit rows / 95 distinct items retrieved, against
-~157–160 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+**[VERIFIED] Totals at the time of writing: 150 hit rows / 141 distinct items retrieved, against
+~145 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
 
-**[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD and
-r/Zettelkasten — the three PKM communities the ticket most cared about, and where all the
-substantive findings came from. Coverage is **poor** for r/podcasts and r/pocketcasts: the single
-r/podcasts item in this document (§4.10's "Snipd Dealbreaker") was found via a targeted narrow-window
-query, not via resolved coverage, so **r/podcasts should be treated as sampled, not swept.** Any
-future pass should start there. Note also that the highest-value find of the entire pass (§4.11,
+**[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD,
+r/Zettelkasten and r/pocketcasts on the comments endpoint — and those four carry essentially all the
+substantive findings. Coverage is **poor** for **r/podcasts**, and for the `airr` term generally
+outside the PKM subreddits. The single r/podcasts item in this document (§4.10's "Snipd Dealbreaker")
+was found via a targeted narrow-window query, not via resolved coverage, so **r/podcasts should be
+treated as sampled, not swept** — it is the largest subreddit in the set and the most likely to hold
+material this pass missed. r/Overcast resolved only on comments (6 hits), so its posts are unswept
+too, though §5.1's findings came from following its threads directly. **Any future pass should start
+with r/podcasts.** Note also that the highest-value find of the entire pass (§4.11,
 the Alora natural experiment) came from **following a thread's reply tree**, not from term search —
 term search located the thread, the tree carried the outcome. A future pass should budget for tree
 traversal rather than search alone.
@@ -1455,7 +1591,12 @@ serve, **(b)** a category users try and abandon because the need is weaker than 
   are on the gym"*). That is retention, not churn.
 - **[VERIFIED]** Willingness-to-pay is *above* the current price for heavy users
   (*"Would be willing to pay double, maybe triple"* — cali_guy_0024), so there is no price umbrella
-  for an undercutter either.
+  for an undercutter either. **[CORRECTED by pass 03b — see §4.12.]** This was wrong as a general
+  claim. It holds for the *heaviest* users only. Reddit produced **seven** distinct users saying
+  Snipd is priced beyond what they will pay (§4.10: redmelon42, Barycenter0; §4.11: Blackgirlmagic23,
+  lefteyes; §4.12: quat1e, sashley520, woldeselassie). **A price umbrella exists.** The reason it does
+  not rescue the proposal is §4.11: Alora undercut all the way to **free** and still failed to move
+  these users.
 - **[VERIFIED]** Price has been flat at $6.99/mo for ~20 months with weekly shipping — a stable,
   actively-maintained incumbent, not a stagnating one.
 - **[VERIFIED]** The specific interaction the proposed app names as its wedge — one-tap,
@@ -1514,7 +1655,9 @@ Three real, durable, four-year-unserved gaps emerged. Each is a problem for this
 - The brief's premise that capture friction is unsolved is **falsified**. It is solved, five ways,
   free, by a live and actively-shipping incumbent.
 - The remaining defensible wedges are the two the map has ruled out of scope (boundaries; desktop).
-- There is **no price umbrella**: free covers capture + export; heavy users want to pay *more*.
+- ~~There is **no price umbrella**~~ — **corrected**: an umbrella does exist (seven price-resistant
+  users, §4.12), but §4.11 shows undercutting to free did not convert it. Free *also* covers capture
+  + export in Snipd's own tier, and the heaviest users want to pay *more*.
 - **The $2–5k MRR bar in context.** At Snipd's $83.90/yr, $3k MRR ≈ **~430 paying annual
   subscribers**. That number is not absurd on its face. But: the category leader — funded ($700k),
   five people, four-and-a-half years, in-house ASR, weekly releases, Ali Abdaal and swyx
@@ -1626,6 +1769,17 @@ premise is **strengthened**, not weakened, by the Reddit pass.
    displacing anyone. **[INFERRED]** A gap that a competitor has served for seven years without
    winning is not an unserved need; it is evidence that serving it does not win.
 
+7. **Incumbent encroachment is the category pattern, not an Overcast quirk.** §4.12: Pocket Casts
+   (~15.7k ratings) has shipped bookmarks (beta 2023-11), a transcripts button (2024-09) and
+   generated transcripts (2025-03). With Overcast (§5.1), **both** mainstream yardsticks are moving
+   into this feature set. **[INFERRED]** Quality gaps remain, so the encroachment is incomplete —
+   but a new entrant would be racing two incumbents into its own headline feature.
+8. **Capture-only entrants get relegated to second-app status.** §4.12: the dominant posture among
+   Pocket Casts users who adopt Snipd is **running both apps** (u/incogenator states this six times
+   over 18 months), because Snipd still lacks player fundamentals after four years. **[INFERRED]** A
+   solo developer would face the same fork: build a full player, or accept being permanently
+   secondary.
+
 **What would now change the verdict** (replacing the superseded list above): a cohort of ex-Snipd
 users with a *shared* reason for leaving (the three found share none); evidence that Overcast has
 shipped and then *failed* at bookmarks/notes; corroboration that offline capture is a widely-felt
@@ -1672,7 +1826,7 @@ offline/cloud dependency (§4.10) — and that one is **low confidence, n=1**.
   then removed them for failing to drive switching.** The pass's other material findings were also
   adverse: Overcast entering the capture category (§5.1) and NoteCast already shipping the desktop
   gap since 2019 (§5.3). What remains genuinely unknown on Reddit:
-  - Per-subreddit outcomes are in the **coverage ledger (§4.12)**, which also records which
+  - Per-subreddit outcomes are in the **coverage ledger (§4.13)**, which also records which
     subreddit-year windows never resolved. Headline: **r/PKMS and r/ObsidianMD carried nearly all
     the signal**, with a smaller but on-point r/Zettelkasten thread and six r/Overcast comments.
     r/PKM was searched-and-empty for `snipd`/`airr` on the comments endpoint. Do not read that
