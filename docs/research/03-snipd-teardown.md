@@ -1383,7 +1383,7 @@ this pass fell into and corrected.
 
 | Subreddit | Term | Result by endpoint |
 |---|---|---|
-| r/podcasts | `snipd` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
 | r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
@@ -1393,19 +1393,22 @@ this pass fell into and corrected.
 | r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; post bodies: 2 windows unresolved |
 | r/Zettelkasten | `snipd` | 5 in comment bodies; 0 in post titles (searched, empty); 0 in post bodies (searched, empty) |
 | r/Zettelkasten | `airr` | 2 in comment bodies; post titles: 2 windows unresolved; 1 in post bodies |
-| r/Overcast | `snipd` | 6 in comment bodies; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/Overcast | `snipd` | 6 in comment bodies; post titles: 4 windows unresolved; post bodies: 6 windows unresolved |
 | r/Overcast | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
-| r/pocketcasts | `snipd` | 46 in comment bodies; post titles: 3 windows unresolved; post bodies: 6 windows unresolved |
-| r/pocketcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/pocketcasts | `snipd` | 46 in comment bodies; post titles: 2 windows unresolved; 2 in post bodies (+2 unresolved) |
+| r/pocketcasts | `airr` | 5 in comment bodies (+1 unresolved); post titles: 1 windows unresolved; 1 in post bodies |
 
 **How to read this.** "searched, empty" means the archive answered and returned nothing — a real
 negative. "N windows unresolved" means the server timed out on that endpoint/year and **no
-conclusion is available**; it is not evidence of absence. Hit counts are raw rows and include
+conclusion is available**; it is not evidence of absence. Where a yearly window never resolved but a
+**narrower** window inside it did, the narrow window's hits are counted and the year is still shown as
+unresolved — this is why r/podcasts shows both 3 hits and 6 unresolved windows on comments. Its real
+coverage is "one resolved quarter of 2026, plus two threads reached by traversal." Hit counts are raw rows and include
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 150 hit rows / 141 distinct items retrieved, against
-~145 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+**[VERIFIED] Totals at the time of writing: 161 hit rows / 149 distinct items retrieved, against
+~122 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
