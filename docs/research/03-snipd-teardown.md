@@ -1381,6 +1381,42 @@ rather than capture, then the proposed app's wedge is not merely served — it m
 That reading is n=1 and should not be over-weighted, but it is the only direct evidence in the corpus
 about *which* feature drives a mainstream switch, and it does not favour capture.
 
+**[VERIFIED] The same asymmetry appears in post *bodies*.** Threads that mention Snipd only in
+passing, while asking for a *capability*, score an order of magnitude higher than threads about the
+product:
+
+> "Are there any good podcast apps with **real time transcripts** with no time limit? ...Snipd does
+> provide them with a subscription but from the description I think there is a **limit of 15 hrs per
+> month**?"
+
+— **u/ohyacomeon**, r/podcasts, 2023-09-17, **16 points**,
+[16l0c30](https://reddit.com/r/podcasts/comments/16l0c30/podcast_apps_ios_with_real_time_transcripts/)
+(Arctic Shift). Note the OP's own update: Spotify shipped read-along transcripts within eleven days of
+the post.
+
+> "when I looked at the ones I'm subscribed to on Snipd, I realised that all episodes are 1h to
+> 2h30mn... it's just too long."
+
+— **u/airmess1**, r/podcasts, 2023-06-29, **29 points**,
+[14mfxbi](https://reddit.com/r/podcasts/comments/14mfxbi/do_you_listen_to_podcasts_if_you_just_have_510mn/)
+(Arctic Shift) — a Snipd *user*, whose 29-point thread is about **episode length**, not capture.
+
+**[VERIFIED]** And the quota ceiling surfacing as an adoption blocker in the wild (cf. §4.4), plus the
+language gap (cf. §4.8):
+
+> "I've found Snipd which does a great job at doing the specifications described **on selected
+> podcasts in English**. Is there an alternative which works for **Spanish/German**?"
+
+— **u/felixlikesmemes**, r/podcasts, 2023-03-20,
+[11wzvrz](https://reddit.com/r/podcasts/comments/11wzvrz/app_to_search_podcast_transcript/) (Arctic Shift)
+
+**[INFERRED]** Across both endpoints the pattern is the same and it is the most robust finding in this
+subsection: **in a general-audience community, demand attaches to capabilities (transcripts, search,
+shorter episodes, other languages) and to the incumbent players, not to the capture product.** The
+highest-scoring Snipd-adjacent threads in r/podcasts are ones where Snipd is incidental. Note too that
+two capability requests here — transcripts and multi-language — were subsequently answered by
+**Spotify** and by Snipd's own 26-language support, i.e. by incumbents, not by new entrants.
+
 #### And the supply side is crowded with people building it right now
 
 **[VERIFIED]** A second 2026 r/podcasts thread is a solo builder describing **the proposed app, in the
@@ -1441,7 +1477,7 @@ this pass fell into and corrected.
 
 | Subreddit | Term | Result by endpoint |
 |---|---|---|
-| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); post bodies: 6 windows unresolved |
+| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); 13 in post bodies (+3 unresolved) |
 | r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
 | r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
@@ -1465,8 +1501,8 @@ coverage is "one resolved quarter of 2026, plus two threads reached by traversal
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 169 hit rows / 157 distinct items retrieved, against
-~96 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+**[VERIFIED] Totals at the time of writing: 176 hit rows / 162 distinct items retrieved, against
+~95 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
