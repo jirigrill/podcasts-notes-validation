@@ -1417,6 +1417,62 @@ highest-scoring Snipd-adjacent threads in r/podcasts are ones where Snipd is inc
 two capability requests here — transcripts and multi-language — were subsequently answered by
 **Spotify** and by Snipd's own 26-language support, i.e. by incumbents, not by new entrants.
 
+#### The sharpest single test: the pain stated to a general audience, and nobody engages with it
+
+**[VERIFIED]** In July 2026 a r/podcasts user posted a thread that states **both halves of this
+effort's premise** and earned **15 points and ~20 replies**
+([1v4y37y](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/),
+u/in-the-name-of-allah, Arctic Shift):
+
+> "even for episodes I loved, **if you asked me a week later what I actually learned, I'd struggle to
+> give you more than one vague takeaway.** I'll hear something genuinely useful while driving, tell
+> myself I'll remember it, and it's gone by dinner. I want that stuff to [stick]"
+
+**[VERIFIED] Not one of the ~20 replies engaged with the retention problem.** Every substantive answer
+addressed *queue management* instead: Pocket Casts filters (u/SockQuirky7056, 7 points; u/sKuarecircle),
+mood-based selection (u/Princessformidable, **14 points** — the top-voted reply), binge cycles
+(u/Snake973), sorting by episode length (u/CeSeaEffBee), download queues (u/ShnakeyTed94). The OP
+repeatedly prompted for the capture angle — *"What would you want to have instead to make it easier?"* —
+and got redirected each time. One respondent volunteered the opposite view outright:
+
+> "Information wise, **it's edutainment for me so I don't worry about retaining anything.**"
+
+— **u/ninasafiri**, [ozf5iqh](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/ozf5iqh/)
+(marked as later removed)
+
+**[INFERRED]** This is the most direct available test of whether general listeners share the brief's
+premise, and the answer is that **they do not prioritise it even when it is put in front of them by a
+peer.** The audience reliably converts "how do you handle podcasts?" into a *queue/curation*
+conversation. **[INFERRED]** If a wedge exists for a mainstream audience, this corpus suggests it is in
+**queue and scheduling** — the OP's own unanswered wish was *"a calendar or something where I can
+schedule an episode when I know that I will be commuting"* — not in capture. That is well outside
+`map.md`'s scope and outside this teardown's remit, but it is where the votes went.
+
+#### Distribution: r/podcasts bans validation *and* marketing outright
+
+**[VERIFIED]** Two comments in this very thread were removed by moderators under **Rule 5**, whose text
+is explicit:
+
+> "**This comment or post is a feedback request and has been removed.** This submission violates
+> Rule 5. **Feedback requests, market research, and idea searches are not allowed in this subreddit.**
+> This is not a place to think of an idea for your podcast, app, program..."
+
+— **u/podcasts-ModTeam**,
+[ozfgijx](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/ozfgijx/)
+(Arctic Shift)
+
+**[INFERRED]** Combined with the Rule 1 self-promotion removals noted above, the largest podcast
+community on Reddit forbids **both** the customer-discovery *and* the launch-marketing activities a
+solo founder would need. Given `map.md` records no audience, no newsletter and no PKM presence, the
+practical consequence is that **neither validation nor distribution can happen there** — the PKM
+subreddits (which do tolerate it) are far smaller and are where Snipd is already entrenched.
+
+**[VERIFIED] One more competitor, unverified:** *"snipd vs apecast… I recently saw a post about
+something new (?) called ApeCast?"* — u/RonTem1, r/podcasts, 2026-04-19,
+[1sq6aow](https://reddit.com/r/podcasts/comments/1sq6aow/snipd_vs_apecast/) (Arctic Shift). The thread
+drew **no** answers, and I did not verify ApeCast's existence or status; recorded only as further
+evidence that entrants keep appearing.
+
 #### And the supply side is crowded with people building it right now
 
 **[VERIFIED]** A second 2026 r/podcasts thread is a solo builder describing **the proposed app, in the
@@ -1501,8 +1557,8 @@ coverage is "one resolved quarter of 2026, plus two threads reached by traversal
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 176 hit rows / 162 distinct items retrieved, against
-~95 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+**[VERIFIED] Totals at the time of writing: 182 hit rows / 167 distinct items retrieved, against
+~93 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
@@ -1990,6 +2046,18 @@ premise is **strengthened**, not weakened, by the Reddit pass.
     under its self-promotion rule. **[INFERRED]** A cold-start solo app with no audience (per `map.md`)
     cannot market in the largest relevant community, and would be one of at least four teams currently
     chasing the same idea.
+
+11. **Distribution is structurally blocked in the largest relevant community.** §4.13: r/podcasts
+    (~3.6M members) bans self-promotion (Rule 1) **and** feedback requests / market research / idea
+    searches (Rule 5), with removals observed in both threads this pass examined. **[INFERRED]** A solo
+    founder with no audience (per `map.md`) can neither validate nor launch there; the communities that
+    do permit it are far smaller and already Snipd's home turf.
+12. **Where the mainstream votes actually go is queue and scheduling, not capture.** §4.13: a 2026
+    thread stating the retention pain verbatim drew 15 points and ~20 replies, and **not one engaged
+    with retention** — every substantive answer was about queue management, with mood-based selection
+    the top-voted reply at 14 points. **[INFERRED]** If a mainstream wedge exists here it is scheduling
+    ("a calendar… when I know that I will be commuting", the OP's own unanswered wish), which is
+    outside `map.md`'s scope. Capture is not what this audience asks for even when prompted.
 
 **What would now change the verdict** (replacing the superseded list above): a cohort of ex-Snipd
 users with a *shared* reason for leaving (the three found share none); evidence that Overcast has
