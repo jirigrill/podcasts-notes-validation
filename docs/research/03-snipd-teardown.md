@@ -1327,6 +1327,60 @@ app, and the category leader gets one mention. §6 inferred that the PKM-capture
 evidence, and it is narrower than §6 assumed.** Note also §4.10's u/Remote-Positive-8951 hypothesis —
 that highlight feeds *"feel useful for 3 days"* — looks less like vendor spin in this light.
 
+#### Every Snipd-titled thread in r/podcasts, 2021–2026 — and how little traction they got
+
+**[VERIFIED]** With the post-title endpoint resolved for `snipd`, the **complete** list of
+Snipd-titled r/podcasts threads across six years is **eight**, and their scores are the point:
+
+| Date | Thread | Score |
+|---|---|---|
+| 2022-10-27 | ["Snipd just launched AI audio & text summaries… on Product Hunt"](https://reddit.com/r/podcasts/comments/yendd2/snipd_just_launched_ai_audio_text_summaries_for/) (vendor post, u/shiroyacha90) | **23** |
+| 2023-06-18 | ["Pocket Casts vs. Snipd: Which Podcast App is best?"](https://reddit.com/r/podcasts/comments/14cfww1/pocket_casts_vs_snipd_which_podcast_app_is_best/) (u/quat1e) | 2 |
+| 2023-06-19 | ["Is Snipd the future of podcast apps?"](https://reddit.com/r/podcasts/comments/14dltzu/is_snipd_the_future_of_podcast_apps/) (u/Superdudeo) — **removed** | 1 |
+| 2023-09-24 | ["Won't Snipd get involved in a copyright lawsuit?"](https://reddit.com/r/podcasts/comments/16r349q/wont_snipd_get_involved_in_a_copyright_lawsuit/) (u/Jumpy-Phone9681) | 2 |
+| 2024-07-30 | ["Is there a tool out there for making YouTube clips similar to Snipd?"](https://reddit.com/r/podcasts/comments/1eg5lto/is_there_a_tool_out_there_for_making_youtube/) (u/Le_King053) | 1 |
+| 2024-11-26 | ["Does anyone here listen to just the highlights and summaries from snipd?"](https://reddit.com/r/podcasts/comments/1h08uip/does_anyone_here_listen_to_just_the_highlights/) (u/gintokiredditbr) | 0 |
+| 2024-12-02 | ["any other tool like snipd's latest 'chat with podcast' feature?"](https://reddit.com/r/podcasts/comments/1h4np7r/any_other_tool_like_snipds_latest_chat_with/) (u/vincentlius) | 1 |
+| 2025-09-29 | ["i want to sign up for Snipd just for the auto chapter feature"](https://reddit.com/r/podcasts/comments/1ntr3bz/i_want_to_sign_up_for_snipd_just_for_the_auto/) (u/woldeselassie) | 1 |
+
+**[INFERRED]** In a ~3.6M-member subreddit over six years, the category leader generated **eight**
+titled threads, of which the highest-scoring is the **vendor's own launch post** and the rest sit at
+0–2 points. Compare the 31 points earned by a thread that merely asks how people *remember* podcasts
+(§4.13 above). **The pain is popular; the product category is not.** This is the cleanest quantitative
+statement of the demand ceiling in the teardown, and it is consistent with the 1,142-vs-47,689 rating
+gap §6 already noted.
+
+**[VERIFIED] Two of these threads sharpen findings elsewhere.** First, the **corpus-coverage tax**
+(§4.3) is a *reason people don't adopt*, not merely a grumble from users:
+
+> "**The only reason why I don't use Snipd is because not all podcasts can be found on their
+> platform** so I was looking to get a tool of some kind either extension or website that can help me
+> create clips."
+
+— **u/Le_King053**, r/podcasts, 2024-07-30,
+[1eg5lto](https://reddit.com/r/podcasts/comments/1eg5lto/is_there_a_tool_out_there_for_making_youtube/)
+(Arctic Shift). The thread drew **one** reply, naming an unrelated tool.
+
+Second — and this is a direct hit on the wedge — a 2025 trial user who wants Snipd for a feature that
+**is not capture at all**:
+
+> "I am currently on a 30-day trial of Snipd and I am really liking this app. The vast majority of
+> podcasts I listen to don't have chapters. Snipd runs some process and generates chapter, usually
+> within 5 minutes. **I don't really care about the snipping feature.** However, this app is pricey;
+> $83.90 a year."
+
+— **u/woldeselassie**, r/podcasts, 2025-09-29,
+[1ntr3bz](https://reddit.com/r/podcasts/comments/1ntr3bz/i_want_to_sign_up_for_snipd_just_for_the_auto/)
+(Arctic Shift)
+
+**[INFERRED]** This is the same user who elsewhere *"ditched pocket casts for Snipd for auto generated
+chapters"* (§4.12) — so across two subreddits, the one enthusiastic recent convert in this corpus
+converted for **auto-chapters**, explicitly discounted snipping, and still calls the price too high.
+**[INFERRED]** If the feature actually pulling mainstream users toward Snipd is chapter generation
+rather than capture, then the proposed app's wedge is not merely served — it may be the wrong wedge.
+That reading is n=1 and should not be over-weighted, but it is the only direct evidence in the corpus
+about *which* feature drives a mainstream switch, and it does not favour capture.
+
 #### And the supply side is crowded with people building it right now
 
 **[VERIFIED]** A second 2026 r/podcasts thread is a solo builder describing **the proposed app, in the
@@ -1387,7 +1441,7 @@ this pass fell into and corrected.
 
 | Subreddit | Term | Result by endpoint |
 |---|---|---|
-| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); post bodies: 6 windows unresolved |
 | r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
 | r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
@@ -1397,8 +1451,8 @@ this pass fell into and corrected.
 | r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; post bodies: 2 windows unresolved |
 | r/Zettelkasten | `snipd` | 5 in comment bodies; 0 in post titles (searched, empty); 0 in post bodies (searched, empty) |
 | r/Zettelkasten | `airr` | 2 in comment bodies; post titles: 2 windows unresolved; 1 in post bodies |
-| r/Overcast | `snipd` | 6 in comment bodies; post titles: 4 windows unresolved; post bodies: 6 windows unresolved |
-| r/Overcast | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/Overcast | `snipd` | 6 in comment bodies; post titles: 2 windows unresolved; post bodies: 1 windows unresolved |
+| r/Overcast | `airr` | 0 in comment bodies (searched, empty); post titles: 4 windows unresolved; 0 in post bodies (searched, empty) |
 | r/pocketcasts | `snipd` | 46 in comment bodies; post titles: 2 windows unresolved; 2 in post bodies (+2 unresolved) |
 | r/pocketcasts | `airr` | 5 in comment bodies (+1 unresolved); post titles: 1 windows unresolved; 1 in post bodies |
 
@@ -1411,8 +1465,8 @@ coverage is "one resolved quarter of 2026, plus two threads reached by traversal
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 161 hit rows / 149 distinct items retrieved, against
-~122 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+**[VERIFIED] Totals at the time of writing: 169 hit rows / 157 distinct items retrieved, against
+~96 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
@@ -1420,10 +1474,11 @@ most expensive queries for this archive.
 **[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD,
 r/Zettelkasten and r/pocketcasts on the comments endpoint — and those four carry essentially all the
 substantive findings. Coverage is **partial** for **r/podcasts** and poor for the `airr` term
-outside the PKM subreddits. r/podcasts resolved only on quarterly windows and only for parts of
-2025–26; its items in this document (§4.10's "Snipd Dealbreaker" and §4.13's two 2026 threads) were
-found via targeted narrow-window queries plus tree traversal, not via full resolved coverage, so
-**r/podcasts is sampled, not swept.** That said, the sample it yielded proved unusually
+outside the PKM subreddits. r/podcasts is now **partly swept**: its `snipd` **post-title** endpoint
+resolved for 2021–2026 (yielding the complete eight-thread census in §4.13), but its comment bodies
+resolved only for one quarter of 2026 — yearly windows there timed out on all six attempts, the
+subreddit being far the largest in the set. So thread-level coverage of r/podcasts is good and
+comment-level coverage is thin; a quarterly comment sweep is running to close that. That said, the sample it yielded proved unusually
 decision-relevant (§4.13), so the remaining gap there is the highest-value item for any future pass —
 not because the verdict looks fragile, but because that is where the general-audience signal lives. r/Overcast resolved only on comments (6 hits), so its posts are unswept
 too, though §5.1's findings came from following its threads directly. **Any future pass should start
