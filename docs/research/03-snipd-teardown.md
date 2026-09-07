@@ -984,11 +984,210 @@ different selection bias (self-selected complainers in PKM communities, not Appl
 "most helpful" ordering), and it **reproduced themes 4.1, 4.6 and 4.7 without contradicting any
 of them**. Independent replication across differently-biased samples is what should raise
 confidence. It stops short of "high" because the Snipd-specific Reddit volume is itself modest
-(see the coverage ledger, §4.11) and concentrated in two threads — the 2021 r/ObsidianMD launch
+(see the coverage ledger, §4.12) and concentrated in two threads — the 2021 r/ObsidianMD launch
 thread and the 2022–24 r/PKMS "Snipd vs Airr" thread — rather than spread across many independent
 posters.
 
 ---
+
+### 4.11 The natural experiment this teardown was missing — what happened to the people who left
+
+**This subsection changes the weight of the evidence, and it is the reason the pass was worth
+running.** §4.9 and the original §6 concluded that churn-out was near-absent. That was an artefact
+of the sources available: App Store reviews and GitHub issues capture *current* users. Reddit
+captures the **exit interview**. And it turns out the 2023 paywall change produced a documented
+cohort of ex-users, a documented demand for a cheaper alternative, and — decisively — **several
+documented attempts to build one, whose outcomes are now observable.**
+
+#### The cohort exists, and it formed around the paywall
+
+**[VERIFIED]** A thread titled **"Now that Snipd is no longer free has anyone found any decent
+alternatives?"** — **25 upvotes**, and a reply chain running from **Sept 2023 to 2026**:
+[16qodbp](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/)
+(Arctic Shift). This directly contradicts this document's earlier reading that complaints are
+"power users asking for more, not people leaving."
+
+> "I wouldn't mind so much if their free tier was more than a bad podcast app!... I'm sure there
+> are enough folks who either can't afford or don't want another subscription right now."
+
+— **u/Blackgirlmagic23**, 2023-09,
+[k27wa0s](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/k27wa0s/)
+
+> "As a heavy podcast listener I would happily pay **$40/year**, but they currently charge double
+> that, and I feel it's **too much**."
+
+— **u/lefteyes**,
+[m6gd84b](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m6gd84b/)
+
+**[VERIFIED]** A user describing product *decay* as the reason for leaving — a fourth distinct churn
+reason, and the one most on-point for this effort's thesis:
+
+> "Snipd started great but **gets notably worse with each update**, to the point that I can't title
+> my segments anymore and **they keep pushing AI summaries for everything**, and solid note features
+> get removed or made worse. **I just want to save and export highlights with an AI transcript!**"
+
+— **u/backpackn**,
+[ltgotmq](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/ltgotmq/)
+
+**[VERIFIED]** And the same want, stated independently in 2026 as a standalone request:
+
+> "I currently used Snipd, but I would like to **move away from using AI as much as they do**. And I
+> am ok with losing the AI summaries and transcripts. Ideally I'd be able to make clips while
+> listening and leaving a note on the clip. And then export. **Does this exist without AI?**"
+
+— **u/piloteris**, r/PKMS, 2026-01-05, 5 points,
+[1q4qttj](https://reddit.com/r/PKMS/comments/1q4qttj/looking_for_a_podcast_app/) (Arctic Shift)
+
+**[INFERRED]** So the demand signal §6 said was missing does exist, and it is specific: *cheaper,
+less AI, user-controlled clips with notes, exportable.* Together with u/Ok-Effort-8356 (§4.10) that
+is **four** independent users wanting the same leaner product. This is the strongest pro-(a)
+evidence in the teardown and it should be recorded as such.
+
+#### But now follow what happened to the people who tried to serve it
+
+This is why the finding does **not** flip the verdict. The same threads contain the outcomes.
+
+**[VERIFIED] Attempt 1 — Castle Player**, recommended in 2023 as "the most similar to Snipd"
+([k3a8amh](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/k3a8amh/)).
+Its own recommender's later verdict:
+
+> "Fair warning I'm **back to just screen recording segments** in a regular pod app and then putting
+> them through a speech to text later. While having some really nice features and so much potential,
+> Castle was **too buggy** for me, with poor note management and an **unresponsive developer who
+> hasn't released an update in over a year.**"
+
+— **u/backpackn**,
+[m36ayoy](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m36ayoy/)
+
+Confirmed independently today: **Castle Player** (id 1634415369, Tinybits LLC) sits at **v1.3.1,
+last updated 2023-02-28, 16 ratings** — no release in ~3.5 years — and two users report it gone from
+the Play Store ([m155cei](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/m155cei/),
+[mcib4dl](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/mcib4dl/)).
+**[INFERRED]** Abandoned.
+
+**[VERIFIED] Attempt 2 — Alora Podcasts, and this is the closest analogue to the proposed app that
+exists.** A *churned paying Snipd subscriber* built exactly the product this effort is contemplating:
+
+> "**Former payed subscriber to Snipd here** and I've gotten very frustrated with their roadmap. So
+> I decided to **build a podcast player myself taking all their great note taking features and
+> making it free and easier to use for people.**"
+
+— **u/henrycrown10**, 2025,
+[n112tou](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/n112tou/)
+
+He shipped it ([Alora Podcasts](https://apps.apple.com/us/app/alora-podcasts/id6737438411),
+Alora Studios Inc., released **2025-05-15**, now **v1.4.1**, updated **2026-08-11**, **32 ratings /
+4.94★** — iTunes Lookup, today). Demand in-thread was real: at least **eight** users asked for
+invites.
+
+**Then he removed the capture features.** This is the single most decision-relevant quote in the
+entire teardown:
+
+> "We realised that **adding the snipd features didn't really move the needle in terms of getting
+> people to switch**, so we're focused on making it easier for you to discover episodes you'd like
+> at the moment."
+
+— **u/henrycrown10**,
+[nknqc9v](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/nknqc9v/)
+
+**[VERIFIED]** Confirmed by the App Store listing today: Alora's description leads with
+*"listen to all your podcasts ad-free with no fees... Auto-skip commercials"* and lists
+*"Organize your episodes with bookmarks and a queue"* — **no snipping, no transcripts, no
+PKM export.** The pivot is real and shipped.
+
+And the user response to that pivot, which also names Airr's death:
+
+> "There are **no real alternatives to Snipd after Airr's sunset**... none have Snipd's features...
+> **The world needs a cost-effective Snipd alternative.**"
+
+— **u/lykpathos**,
+[nknwdgi](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/nknwdgi/)
+
+**[VERIFIED] Attempts 3–5**, all self-announced in these threads, all small or unverifiable:
+**Earworm** (u/CoolThinksPodcast, r/PKMS 2024-01,
+[19axcb8](https://reddit.com/r/PKMS/comments/19axcb8/saving_podcast_clips/)) — recruiting testers;
+an unnamed beta (u/Main-Heat-6240, replying to u/piloteris in 2026,
+[nxz7z0m](https://reddit.com/r/PKMS/comments/1q4qttj/looking_for_a_podcast_app/nxz7z0m/)) — *"fully
+free for life if people join now"*; and **Readable Podcasts** (u/fuxafak, 2023,
+[kbqq4lc](https://reddit.com/r/ObsidianMD/comments/16qodbp/now_that_snipd_is_no_longer_free_has_anyone_found/kbqq4lc/))
+— *"Still a bit buggy."*
+
+#### What the natural experiment shows
+
+**[INFERRED]** This is the strongest evidence in the whole teardown, because it is not opinion about
+whether a market exists — it is **five observed attempts to enter it, with outcomes**:
+
+| Attempt | Outcome |
+|---|---|
+| Airr | Dead (§5) |
+| Momento | Dead (§5.2) |
+| Castle Player | Abandoned — no update since Feb 2023, 16 ratings |
+| Alora Podcasts | **Alive, but deliberately removed the capture features** — "didn't move the needle" |
+| Earworm / Readable / unnamed 2026 beta | No evidence of traction |
+
+**[INFERRED] The decisive point is Alora.** A motivated founder — himself a churned Snipd
+subscriber, with a warm audience of ex-Snipd users asking him for invites in the very thread where
+they complained about the paywall, shipping free — built the leaner capture tool, and concluded from
+his own users that **capture features do not drive switching.** That is a direct, empirical test of
+this effort's core premise by someone better positioned than the proposed app would be, and it came
+back negative.
+
+**[INFERRED]** So the pro-(a) demand signal above is real but must be read alongside this: users
+*say* they want a cheaper, less-AI Snipd; when one was built and given away, it did not move them.
+The gap between stated and revealed preference is the whole ballgame here, and the natural
+experiment measures it. **This resolves the ticket's core question — "does the complaint pattern
+indicate an unmet need a new entrant could serve?" — more directly than any sentiment analysis
+could: it was served, twice, free, and the market did not move.**
+
+---
+
+### 4.12 Coverage ledger — exactly what was searched, and what did not resolve
+
+Recorded so that a reader can tell **searched-and-empty** apart from **not-actually-searched**, which
+is the distinction the original version of this document got wrong by accident (see the two archive
+quirks in §4.10). Route: Arctic Shift only. Terms: `snipd`, `airr`. Range 2021-01-01 → 2026-09-08,
+queried unwindowed where the server allowed it and in yearly windows where it did not. Endpoints are
+separate because the API takes different parameters for each (`body=` for comments, `title=` and
+`selftext=` for posts) — passing the wrong one returns a silent rejection, which is itself a trap
+this pass fell into and corrected.
+
+| Subreddit | Term | Result by endpoint |
+|---|---|---|
+| r/podcasts | `snipd` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
+| r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
+| r/PKMS | `snipd` | 47 in comment bodies; 3 in post titles; 7 in post bodies (+2 unresolved) |
+| r/PKMS | `airr` | 4 in comment bodies (+4 unresolved); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/PKM | `snipd` | 0 in comment bodies (searched, empty); post titles: 1 windows unresolved; post bodies: 3 windows unresolved |
+| r/PKM | `airr` | 0 in comment bodies (searched, empty); post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/Zettelkasten | `snipd` | 5 in comment bodies; 0 in post titles (searched, empty); 0 in post bodies (searched, empty) |
+| r/Zettelkasten | `airr` | 2 in comment bodies; post titles: 2 windows unresolved; 1 in post bodies |
+| r/Overcast | `snipd` | 6 in comment bodies; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/Overcast | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/pocketcasts | `snipd` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+| r/pocketcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
+
+**How to read this.** "searched, empty" means the archive answered and returned nothing — a real
+negative. "N windows unresolved" means the server timed out on that endpoint/year and **no
+conclusion is available**; it is not evidence of absence. Hit counts are raw rows and include
+duplicates where a post matched on both title and body, so the qualitative sections cite fewer
+distinct items than the totals here.
+
+**[VERIFIED] Totals: 104 hit rows / 95 distinct items retrieved; 160 endpoint-year windows never
+resolved.** The unresolved windows are concentrated in the largest subreddits (r/podcasts,
+r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
+most expensive queries for this archive.
+
+**[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD and
+r/Zettelkasten — the three PKM communities the ticket most cared about, and where all the
+substantive findings came from. Coverage is **poor** for r/podcasts and r/pocketcasts: the single
+r/podcasts item in this document (§4.10's "Snipd Dealbreaker") was found via a targeted narrow-window
+query, not via resolved coverage, so **r/podcasts should be treated as sampled, not swept.** Any
+future pass should start there. Note also that the highest-value find of the entire pass (§4.11,
+the Alora natural experiment) came from **following a thread's reply tree**, not from term search —
+term search located the thread, the tree carried the outcome. A future pass should budget for tree
+traversal rather than search alone.
 
 ## 5. Competitor liveness — the graveyard
 
@@ -1218,6 +1417,12 @@ serve, **(b)** a category users try and abandon because the need is weaker than 
 
 ### Verdict: predominantly (c), with a material (b) component, and (a) only in places this effort has ruled out of scope.
 
+> **Amended by pass 03b (§6.1).** The verdict stands, but its *reasoning* on point (a) changed:
+> Reddit shows a real cohort wanting a cheaper, less-AI alternative (§4.11), so (a)-style demand is
+> **no longer absent from the record**. It is instead **answered** — five entrants tried to serve it
+> and none converted the demand, most tellingly Alora, which built the capture features free and
+> then removed them. Read §4.11 and §6.1 before relying on the paragraphs below.
+
 **The case for (c) — solved problem, satisfied base. This is the dominant reading.**
 
 - **[VERIFIED]** 4.7★ / 1,142 US ratings. In a ~30-review qualitative sample, exactly **two 1★
@@ -1334,17 +1539,35 @@ churn or churn-adjacent accounts, all n=1, none sharing a reason with the others
 
 Against that: fresh switching-*in* and conversion evidence (§4.10: u/Psychsatani, u/doyouhavesauce,
 u/Tutwiler), and a dissatisfied 2026 research user who **still** advises against competing with
-Snipd on capture (§4.10: u/Good-Writer5279). **A cohort of three users with three unrelated reasons
-is not the cohort that would move the verdict**, so the condition for revising toward (a) was **not
-met** — though reason 3 is the most interesting counter-signal in the whole teardown, and §4.10
-records why it still falls short.
+Snipd on capture (§4.10: u/Good-Writer5279). ****Superseded — see §4.11.** A deeper pass on the
+same subreddits found that the cohort *does* exist and *does* share a reason: the **2023 paywall**
+plus **AI-maximalism**, in a 25-upvote thread titled "Now that Snipd is no longer free has anyone
+found any decent alternatives?" running 2023→2026, with at least four users independently
+describing the same wanted product (cheaper, less AI, user-controlled clips, exportable).
+
+**So the stated condition for revising toward (a) was in fact met — and the verdict still does not
+move, for a stronger reason than the one originally given.** §4.11 documents the natural experiment
+that followed: **five** attempts to serve exactly that demand, of which two are dead, one is
+abandoned, and the most on-point — **Alora Podcasts**, built *by a churned paying Snipd subscriber*,
+given away free to a warm audience of ex-Snipd users — **shipped the capture features and then
+removed them**, its founder concluding they *"didn't really move the needle in terms of getting
+people to switch."* Stated demand was real; revealed demand was not.
 
 **Verdict: unchanged — predominantly (c), with a material (b) component.** The reason it is
 unchanged is not that the new evidence was neutral; it is that the new evidence pointed the *same
 direction* on the specific question of whether users abandon Snipd, and where it pointed a new
 direction, it pointed **against** a new entrant, not for one.
 
-**What did change — three amendments, all adverse to the proposal:**
+**What did change — the amendments below, all adverse to the proposal.** The first is new and is
+the most important single finding of the pass:
+
+0. **The premise has already been field-tested by others, and it failed.** §4.11: five entrants
+   tried to serve the ex-Snipd/cheaper/less-AI demand; two are dead, one abandoned, and Alora —
+   free, built by a churned Snipd subscriber, with ex-Snipd users queuing for invites — **removed
+   the capture features because they "didn't move the needle."** **[INFERRED]** No other evidence in
+   this teardown comes as close to a direct test of the proposed app's thesis, and none is as
+   negative.
+
 
 1. **The wedge's moat is weaker than §4.2 assumed.** §4.2 treats dynamic-ad-insertion misalignment
    as a hard, unsolved problem — implicitly, a barrier protecting anyone who solves capture.
@@ -1407,6 +1630,12 @@ surfaces, current pricing ($0 / $11.90 mo / $83.90 yr), free-vs-paid split, App 
 version cadence, funding ($700k pre-seed, Wingman + Acequia), 2022 team size (five), the Obsidian
 plugin install count, and the liveness/death status of Airr, Fathom, Recast and Podurama.
 
+**High confidence on the go/no-go conclusion (raised by pass 03b):** not because the sentiment
+sample got large, but because §4.11 replaces sentiment with **observed outcomes** — five entrants
+attacked this niche and none converted the demand, including one that gave the capture features away
+free and then withdrew them. Competitor outcomes are verifiable facts rather than opinions, and they
+point one way.
+
 **Medium-high confidence (raised from medium by pass 03b):** the complaint *taxonomy*. The themes
 recur across independent sources (App Store, Product Hunt, GitHub, HN), and **pass 03b reproduced
 themes 4.1, 4.6 and 4.7 in an independent Reddit sample with different selection bias** without
@@ -1423,11 +1652,14 @@ offline/cloud dependency (§4.10) — and that one is **low confidence, n=1**.
 - ~~**Reddit sentiment entirely**~~ — **RESOLVED by pass 03b, 2026-09-07 (issue #11).** Reddit was
   searched via the Arctic Shift archive; direct Reddit access is still 403 (route table, §4.10).
   Findings are in **§4.10** (taxonomy) and **§5.1** (competitive), and the verdict is restated in
-  **§6.1**. Outcome in one line: **the hunt for churned-out users came back nearly empty — one
-  on-point dealbreaker post, not a cohort — so the verdict did not move toward (a); the pass's
-  material finding was instead adverse (Overcast entering the capture category).** What remains
-  genuinely unknown on Reddit:
-  - Per-subreddit outcomes are in the **coverage ledger (§4.11)**, which also records which
+  **§6.1**. Outcome in one line: **the hunt for churned-out users succeeded — there is a cohort, it
+  formed around the 2023 paywall and Snipd's AI-maximalism (§4.11) — but the verdict still did not
+  move toward (a), because the same threads record five attempts to serve that cohort, of which the
+  most on-point (Alora, free, built by a churned Snipd subscriber) shipped the capture features and
+  then removed them for failing to drive switching.** The pass's other material findings were also
+  adverse: Overcast entering the capture category (§5.1) and NoteCast already shipping the desktop
+  gap since 2019 (§5.3). What remains genuinely unknown on Reddit:
+  - Per-subreddit outcomes are in the **coverage ledger (§4.12)**, which also records which
     subreddit-year windows never resolved. Headline: **r/PKMS and r/ObsidianMD carried nearly all
     the signal**, with a smaller but on-point r/Zettelkasten thread and six r/Overcast comments.
     r/PKM was searched-and-empty for `snipd`/`airr` on the comments endpoint. Do not read that
