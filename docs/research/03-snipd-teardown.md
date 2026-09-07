@@ -1174,8 +1174,9 @@ conclusion is available**; it is not evidence of absence. Hit counts are raw row
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals: 104 hit rows / 95 distinct items retrieved; 160 endpoint-year windows never
-resolved.** The unresolved windows are concentrated in the largest subreddits (r/podcasts,
+**[VERIFIED] Totals at the time of writing: 104 hit rows / 95 distinct items retrieved, against
+~157–160 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
+retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
 most expensive queries for this archive.
 
