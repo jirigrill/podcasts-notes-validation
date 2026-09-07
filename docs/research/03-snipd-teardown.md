@@ -1340,6 +1340,10 @@ snippets from podcasts and putting them to your notes?"*
 > accommodate everyones different systems and tastes seems daunting... **I don't want this to be a
 > notes app, I just want it to be good at the capturing part!**"
 
+— **u/Lucoda**, r/podcasts, 2026-03-03,
+[1rjlr1g](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/)
+(Arctic Shift)
+
 **[INFERRED]** That is this effort's brief, written independently by someone else, five months ago.
 The thread drew **five** comments and no evident users.
 
