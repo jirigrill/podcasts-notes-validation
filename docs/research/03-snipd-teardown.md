@@ -984,7 +984,7 @@ different selection bias (self-selected complainers in PKM communities, not Appl
 "most helpful" ordering), and it **reproduced themes 4.1, 4.6 and 4.7 without contradicting any
 of them**. Independent replication across differently-biased samples is what should raise
 confidence. It stops short of "high" because the Snipd-specific Reddit volume is itself modest
-(see the coverage ledger, §4.13). Note that later passes broadened this considerably: the corpus now
+(see the coverage ledger, §4.14). Note that later passes broadened this considerably: the corpus now
 spans the 2021 r/ObsidianMD launch thread, the 2022–24 r/PKMS "Snipd vs Airr" thread, the 2023–26
 r/ObsidianMD "no longer free" thread (§4.11), a r/Zettelkasten driving thread, and 46 r/pocketcasts
 comments (§4.12) — so concentration is much less of a concern than when this paragraph was written.
@@ -1274,7 +1274,104 @@ both incumbents.
 
 ---
 
-### 4.13 Coverage ledger — exactly what was searched, and what did not resolve
+### 4.13 r/podcasts — the general-audience test, and it is the least favourable result in the pass
+
+§4.12 and the PKM subreddits sample people who **already** run a knowledge system. r/podcasts (the
+largest subreddit in the set, ~3.6M members) samples **ordinary podcast listeners** — the population
+any consumer app must actually convert. This subsection was the coverage hole flagged in §4.14; it is
+now partly filled, and the result is the most adverse single data point for the proposal in the whole
+teardown.
+
+#### The pain is real and popular — and almost nobody wants a tool for it
+
+**[VERIFIED]** A 2026 thread asking precisely this effort's question — **"How do you guys actually
+remember stuff from podcasts?"** — **31 upvotes, 30 comments**
+([1rx51fa](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/),
+2026-03-18, u/Short-Sentence-7141). The OP states the pain exactly as the brief does: *"I feel like I
+forget almost everything once I move on to the next episode."*
+
+**The answers are the finding.** The highest-voted replies do not ask for a capture tool. They reject
+the premise that capture is wanted:
+
+> "honestly same i just **let the information wash over me like a wave and hope for the best**"
+
+— **u/DustyShogun235**, **24 points** — the top-voted reply in the thread,
+[ob699rl](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob699rl/)
+
+> "I personally listen casually. I think that sort of **casual learning about things without
+> necessarily expecting to put it in practice is important** to foster a sense of curiosity... [notes]
+> tends to be quite rare."
+
+— **u/midasgoldentouch**, **15 points**,
+[ob5kqfo](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob5kqfo/)
+
+> "I don't try to RETAIN everything I'm hearing; I engage with the discussion as it happens... **The
+> goal for me is to enjoy the podcast and enjoy learning.**"
+
+— **u/Rev_Bottoms**,
+[ob6os0j](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/ob6os0j/)
+
+**[VERIFIED]** Of ~25 substantive replies, the solutions actually offered were: listen casually
+(several), pause and type into the phone's Notes app (u/CarpetEmergency8517, u/ExplanationUnique84,
+u/Best_Interest_5869), record a voice memo (u/stanlymt, u/topsidersandsunshine), read the transcript
+afterwards (u/ojutdohi, u/jdcarl14), Pocket Casts' paid **Bookmarks** feature (u/nerdmonkey), and
+**Snipd — mentioned exactly once, in a single low-scoring comment** (u/Samjam48,
+[obi0ri6](https://reddit.com/r/podcasts/comments/1rx51fa/how_do_you_guys_actually_remember_stuff_from/obi0ri6/),
+who notes *"the app is free so nothing to complain about"*).
+
+**[INFERRED] This is the demand-side ceiling made visible.** In the single most on-point thread in the
+largest podcast community, with 30 people answering a direct question about exactly the problem this
+app would solve: the winning answer is *"don't bother,"* the common workaround is the built-in Notes
+app, and the category leader gets one mention. §6 inferred that the PKM-capture behaviour is a
+"genuine but narrow niche" from indirect evidence (rating counts, the graveyard). **This is direct
+evidence, and it is narrower than §6 assumed.** Note also §4.10's u/Remote-Positive-8951 hypothesis —
+that highlight feeds *"feel useful for 3 days"* — looks less like vendor spin in this light.
+
+#### And the supply side is crowded with people building it right now
+
+**[VERIFIED]** A second 2026 r/podcasts thread is a solo builder describing **the proposed app, in the
+proposed scope, with the proposed reservations** — *"Is it possible to have an easier way of capturing
+snippets from podcasts and putting them to your notes?"*
+([1rjlr1g](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/),
+2026-03-03, u/Lucoda, 5 upvotes / 5 comments):
+
+> "I've built a version of this that works for **capturing the last 30 seconds** said on a podcast and
+> then it goes right to my obsidian vault. But building this in a **privacy-first** way that would
+> accommodate everyones different systems and tastes seems daunting... **I don't want this to be a
+> notes app, I just want it to be good at the capturing part!**"
+
+**[INFERRED]** That is this effort's brief, written independently by someone else, five months ago.
+The thread drew **five** comments and no evident users.
+
+**[VERIFIED]** Its replies contain **three more** builders in the same space — u/Petty_Boys (podtalk
+studio), u/Remote-Positive-8951 (**AskAlong**, voice Q&A mid-episode — the same account that posted
+the r/ObsidianMD skeptical thread in §4.10), and u/Ok_Ad_3 (an unnamed AI marking app, replying to
+both threads). Two of these self-promotions were **removed by r/podcasts moderators** under the
+subreddit's self-promotion rule
+([od9cljr](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/od9cljr/),
+[oext0le](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/oext0le/)).
+
+**[INFERRED] Two consequences worth stating plainly.** First, **the builder-to-user ratio in these
+threads is close to 1:1** — in the capture-request thread, three of five repliers were building a
+competing product. That is a hallmark of a market with more supply enthusiasm than demand. Second,
+**r/podcasts actively removes this kind of promotion**, so the obvious cheap distribution channel for
+a cold-start solo app in the largest relevant community is **closed**. Given `map.md` records no
+audience, no newsletter and no PKM presence, that matters for go-to-market, not just for sizing.
+
+**[VERIFIED]** One more corroboration of §5.1, from a user lobbying Overcast directly:
+
+> "I've been **begging Marco to add this to Overcast**, but haven't heard back... he's still working on
+> transcripts and that's a **prereq for bookmarking w/ text extraction**, so I keep my fingers crossed."
+
+— **u/jkmcf**,
+[orf6355](https://reddit.com/r/podcasts/comments/1rjlr1g/is_it_possible_to_have_an_easier_way_of_capturing/orf6355/)
+
+**[INFERRED]** Users experiencing this pain are asking the **incumbent** to solve it, not looking for a
+new app — which is how a feature, rather than a product, gets requested.
+
+---
+
+### 4.14 Coverage ledger — exactly what was searched, and what did not resolve
 
 Recorded so that a reader can tell **searched-and-empty** apart from **not-actually-searched**, which
 is the distinction the original version of this document got wrong by accident (see the two archive
@@ -1315,11 +1412,13 @@ most expensive queries for this archive.
 
 **[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD,
 r/Zettelkasten and r/pocketcasts on the comments endpoint — and those four carry essentially all the
-substantive findings. Coverage is **poor** for **r/podcasts**, and for the `airr` term generally
-outside the PKM subreddits. The single r/podcasts item in this document (§4.10's "Snipd Dealbreaker")
-was found via a targeted narrow-window query, not via resolved coverage, so **r/podcasts should be
-treated as sampled, not swept** — it is the largest subreddit in the set and the most likely to hold
-material this pass missed. r/Overcast resolved only on comments (6 hits), so its posts are unswept
+substantive findings. Coverage is **partial** for **r/podcasts** and poor for the `airr` term
+outside the PKM subreddits. r/podcasts resolved only on quarterly windows and only for parts of
+2025–26; its items in this document (§4.10's "Snipd Dealbreaker" and §4.13's two 2026 threads) were
+found via targeted narrow-window queries plus tree traversal, not via full resolved coverage, so
+**r/podcasts is sampled, not swept.** That said, the sample it yielded proved unusually
+decision-relevant (§4.13), so the remaining gap there is the highest-value item for any future pass —
+not because the verdict looks fragile, but because that is where the general-audience signal lives. r/Overcast resolved only on comments (6 hits), so its posts are unswept
 too, though §5.1's findings came from following its threads directly. **Any future pass should start
 with r/podcasts.** Note also that the highest-value find of the entire pass (§4.11,
 the Alora natural experiment) came from **following a thread's reply tree**, not from term search —
@@ -1780,6 +1879,20 @@ premise is **strengthened**, not weakened, by the Reddit pass.
    solo developer would face the same fork: build a full player, or accept being permanently
    secondary.
 
+9. **The general-audience demand test came back worse than §6 assumed.** §4.13: in r/podcasts' most
+   on-point 2026 thread (31 upvotes, 30 comments, asking literally "How do you guys actually remember
+   stuff from podcasts?"), the **top-voted answer is "let the information wash over me like a wave and
+   hope for the best" (24 points)**, the common workaround is the built-in Notes app, and Snipd is
+   mentioned **once**. **[INFERRED]** §6 inferred a narrow niche from rating counts; this is direct
+   evidence and the niche is narrower still. Most listeners do not want to capture — they want to enjoy.
+10. **Supply enthusiasm exceeds demand, and the obvious distribution channel is closed.** §4.13: in the
+    r/podcasts thread where a solo builder describes *this exact app* ("capturing the last 30 seconds…
+    right to my obsidian vault… I just want it to be good at the capturing part"), **three of five
+    repliers were building competing products**, and r/podcasts moderators **removed** two such posts
+    under its self-promotion rule. **[INFERRED]** A cold-start solo app with no audience (per `map.md`)
+    cannot market in the largest relevant community, and would be one of at least four teams currently
+    chasing the same idea.
+
 **What would now change the verdict** (replacing the superseded list above): a cohort of ex-Snipd
 users with a *shared* reason for leaving (the three found share none); evidence that Overcast has
 shipped and then *failed* at bookmarks/notes; corroboration that offline capture is a widely-felt
@@ -1798,10 +1911,12 @@ version cadence, funding ($700k pre-seed, Wingman + Acequia), 2022 team size (fi
 plugin install count, and the liveness/death status of Airr, Fathom, Recast and Podurama.
 
 **High confidence on the go/no-go conclusion (raised by pass 03b):** not because the sentiment
-sample got large, but because §4.11 replaces sentiment with **observed outcomes** — five entrants
-attacked this niche and none converted the demand, including one that gave the capture features away
-free and then withdrew them. Competitor outcomes are verifiable facts rather than opinions, and they
-point one way.
+sample got large, but because the pass replaced sentiment with two harder classes of evidence.
+**(a) Observed competitor outcomes** (§4.11): five entrants attacked this niche and none converted the
+demand, including one that gave the capture features away free and then withdrew them. **(b) A direct
+general-audience demand test** (§4.13): asked point-blank how they remember podcast content, 30
+r/podcasts users voted "don't bother" to the top and named the built-in Notes app more often than any
+product. Outcomes and votes are verifiable facts rather than opinions, and both point the same way.
 
 **Medium-high confidence (raised from medium by pass 03b):** the complaint *taxonomy*. The themes
 recur across independent sources (App Store, Product Hunt, GitHub, HN), and **pass 03b reproduced
@@ -1826,7 +1941,7 @@ offline/cloud dependency (§4.10) — and that one is **low confidence, n=1**.
   then removed them for failing to drive switching.** The pass's other material findings were also
   adverse: Overcast entering the capture category (§5.1) and NoteCast already shipping the desktop
   gap since 2019 (§5.3). What remains genuinely unknown on Reddit:
-  - Per-subreddit outcomes are in the **coverage ledger (§4.13)**, which also records which
+  - Per-subreddit outcomes are in the **coverage ledger (§4.14)**, which also records which
     subreddit-year windows never resolved. Headline: **r/PKMS and r/ObsidianMD carried nearly all
     the signal**, with a smaller but on-point r/Zettelkasten thread and six r/Overcast comments.
     r/PKM was searched-and-empty for `snipd`/`airr` on the comments endpoint. Do not read that
