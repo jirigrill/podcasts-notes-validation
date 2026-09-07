@@ -1417,6 +1417,74 @@ highest-scoring Snipd-adjacent threads in r/podcasts are ones where Snipd is inc
 two capability requests here — transcripts and multi-language — were subsequently answered by
 **Spotify** and by Snipd's own 26-language support, i.e. by incumbents, not by new entrants.
 
+#### Correction to this section: r/podcasts *comment* volume is real, and 2022–23 was an active recommendation period
+
+**[VERIFIED]** A later quarterly comment sweep (yearly windows all timed out; quarters resolved)
+recovered **54 distinct Snipd-mentioning comments** in r/podcasts for 2021–2023 and 2026 Q1 — against
+the **3** this section originally reported. **The earlier "sampled, not swept" caveat was doing real
+work: the thin number was a coverage artefact, and the thread-census reading below must be qualified
+accordingly.**
+
+**What the comment corpus shows that the title census did not.** Through 2022–23, Snipd was
+**actively and enthusiastically recommended** in r/podcasts whenever someone asked for note-taking,
+highlighting or transcript features — organically, in reply to other people's questions:
+
+> "Snipd - hands down :) AI-generated chapters, transcripts, summaries, you can highlight passages by
+> tapping your headphones and get the AI extracts the key takeaways of that moment"
+
+— **u/KB_reading**, 2022-11-29, 6 points (Arctic Shift)
+
+> "I use Snipd lately which takes AI transcription of the podcast and then it send it to your note
+> taking apps which has been **a godsend when I have a gold nugget of info that I know I will never
+> find again if it doesn't get written down.** Has helped me so much since I listen to tons of podcasts"
+
+— **u/sie-b**, 2022-12-15 (Arctic Shift)
+
+> "I switched to SNIPD about year ago and I think it's actually **the best one out there.**"
+
+— **u/ScaretheLocals**, 2023-10-19, 2 points (Arctic Shift)
+
+**[VERIFIED]** It also functioned as the **named Airr replacement** after Airr's decline — three
+independent users, which corroborates §4.9 and §5 from a general-audience community:
+
+> "Any updates on an Airr replacement? I'll try Snipd but has anyone had any better luck with anything
+> else?" — **u/costa6**, 2023-11-13
+
+> "I started using Snipd as a replacement for Airr." — **u/nnamerz**, 2023-12-07
+
+> "My replacement as well. Back then choosen Airr and snipd was not as intuitive when bookmarking. But
+> after trying it again, there were improvements made... **That said, I still prefer the basic
+> capturing of Airr.**" — **u/nez329**, 2023-12-07 (Arctic Shift)
+
+#### Two caveats that keep this from reversing the section's conclusion
+
+**[VERIFIED] 1. A third of the corpus comes from four repeat accounts, one of them the vendor.** Of 54
+comments across **34** distinct authors, **18 (33%)** come from four accounts: **u/RamenNator (8)**,
+**u/shiroyacha90 (4)**, **u/snipd_app (3 — Snipd's official account)** and **u/nez329 (3)**.
+u/shiroyacha90 is also the author of the vendor launch post in the census above. **[INFERRED]** Some of
+this enthusiasm is vendor and superfan amplification rather than independent word of mouth; the
+organic base is thinner than 54 suggests, though clearly larger than 3.
+
+**2. The strongest finding in this section does not depend on comment volume at all.** The
+[July 2026 thread](https://reddit.com/r/podcasts/comments/1v4y37y/does_anyone_else_plan_their_podcast_listening_or/)
+where the retention pain was stated verbatim and **all ~20 replies discussed queue management instead**
+stands unchanged, as does the vote asymmetry (31 points for "how do you remember?" versus 0–2 for every
+user-posted Snipd thread) and the Rule 1 / Rule 5 distribution block. Recommendation activity in reply
+to *other people's* questions is compatible with the category being small: it shows Snipd is the answer
+when someone asks, not that many people ask.
+
+**[INFERRED] Net effect on the verdict: unchanged, but this section is less lopsided than first
+written.** Snipd had genuine organic advocacy in a mainstream community in 2022–23. That is evidence
+the incumbent is *well-liked*, which supports (c) — a solved problem with a satisfied base — rather
+than supporting a new entrant.
+
+**[NOT ESTABLISHED — stated rather than inferred.]** The corpus shows 25 comments in 2022, 26 in 2023,
+and 3 in 2026 Q1, which *looks* like a collapse after 2023. **It is not evidence of one.** All four
+2024 and 2025 quarters are unfetched or timed out (see §4.14), so the apparent drop is a coverage gap.
+Whether Snipd's r/podcasts word-of-mouth actually declined after 2023 is **unknown**, and it would be
+worth knowing: a real decline would be the first sign of incumbent weakness this teardown has found,
+while flat volume would further support (c). **This is the single most useful remaining query.**
+
 #### The sharpest single test: the pain stated to a general audience, and nobody engages with it
 
 **[VERIFIED]** In July 2026 a r/podcasts user posted a thread that states **both halves of this
@@ -1533,7 +1601,7 @@ this pass fell into and corrected.
 
 | Subreddit | Term | Result by endpoint |
 |---|---|---|
-| r/podcasts | `snipd` | 3 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); 13 in post bodies (+3 unresolved) |
+| r/podcasts | `snipd` | 54 in comment bodies (+6 unresolved); 8 in post titles (+1 unresolved); 13 in post bodies (+3 unresolved) |
 | r/podcasts | `airr` | comment bodies: 6 windows unresolved; post titles: 6 windows unresolved; post bodies: 6 windows unresolved |
 | r/ObsidianMD | `snipd` | 6 in comment bodies (+5 unresolved); 5 in post titles (+3 unresolved); 9 in post bodies (+2 unresolved) |
 | r/ObsidianMD | `airr` | 7 in comment bodies (+5 unresolved); post titles: 4 windows unresolved; 2 in post bodies (+3 unresolved) |
@@ -1557,7 +1625,7 @@ coverage is "one resolved quarter of 2026, plus two threads reached by traversal
 duplicates where a post matched on both title and body, so the qualitative sections cite fewer
 distinct items than the totals here.
 
-**[VERIFIED] Totals at the time of writing: 182 hit rows / 167 distinct items retrieved, against
+**[VERIFIED] Totals at the time of writing: 233 hit rows / 218 distinct items retrieved, against
 ~93 endpoint-year windows that never resolved.** (The unresolved figure was still falling as
 retries landed, so treat it as approximate; the table above is the authoritative per-cell record.) The unresolved windows are concentrated in the largest subreddits (r/podcasts,
 r/pocketcasts) and on the posts endpoints, because rare terms in high-volume subreddits are the
@@ -1566,11 +1634,14 @@ most expensive queries for this archive.
 **[INFERRED] What this means for confidence.** Coverage is **good** for r/PKMS, r/ObsidianMD,
 r/Zettelkasten and r/pocketcasts on the comments endpoint — and those four carry essentially all the
 substantive findings. Coverage is **partial** for **r/podcasts** and poor for the `airr` term
-outside the PKM subreddits. r/podcasts is now **partly swept**: its `snipd` **post-title** endpoint
-resolved for 2021–2026 (yielding the complete eight-thread census in §4.13), but its comment bodies
-resolved only for one quarter of 2026 — yearly windows there timed out on all six attempts, the
-subreddit being far the largest in the set. So thread-level coverage of r/podcasts is good and
-comment-level coverage is thin; a quarterly comment sweep is running to close that. That said, the sample it yielded proved unusually
+outside the PKM subreddits. r/podcasts is now **substantially swept, with a dated hole**: its
+`snipd` post-title endpoint resolved 2021–2026 (the eight-thread census, §4.13), and a **quarterly**
+comment sweep resolved **2021–2023 plus 2026 Q1**, recovering 54 comments where yearly windows had
+timed out on all six attempts. **The hole is 2024 and 2025 comments — all eight quarters unfetched or
+timed out.** That gap matters: the recovered corpus shows 25 comments in 2022 and 26 in 2023, so
+whether word-of-mouth held or fell after 2023 is exactly what those eight quarters would answer, and
+§4.13 flags it as the single most useful remaining query. **Do not read the low 2026 number as decline
+— read it as unfetched.** That said, the sample it yielded proved unusually
 decision-relevant (§4.13), so the remaining gap there is the highest-value item for any future pass —
 not because the verdict looks fragile, but because that is where the general-audience signal lives. r/Overcast resolved only on comments (6 hits), so its posts are unswept
 too, though §5.1's findings came from following its threads directly. **Any future pass should start
